@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
@@ -124,11 +125,17 @@ public class JPreferenceDialog extends JAdminDialog {
         lu.setLabelFor(_userChooser);
         centerPanel.add(_userChooser);
 
+        JList custFields = new JList(_adminF.getAllCustomFieldTypesVector());
+        JLabel lc = new JLabel("Custom fields" +" :", JLabel.TRAILING);
+        centerPanel.add(lc);
+        lc.setLabelFor(custFields);
+        // custFields.setMinimumSize(new Dimension(150, 150));
+        centerPanel.add(custFields);
+        
         // Lay out the panel.
-        SpringUtilities.makeCompactGrid(centerPanel, 6, 2, //rows, cols
+        SpringUtilities.makeCompactGrid(centerPanel, 7, 2, //rows, cols
                 6, 6, //initX, initY
                 6, 6); //xPad, yPad
-        
         
         JButton ok = new JButton(_bndl.getString("btn.ok"));
 		JButton canc = new JButton(_bndl.getString("btn.cancel"));

@@ -25,6 +25,7 @@ import java.util.logging.Level;
 
 import javax.swing.table.DefaultTableModel;
 
+import net.illfounded.jpulsemonitor.xml.dataobject.CustomFieldDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.TrainingDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.TrainingTypeDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
@@ -86,6 +87,26 @@ public class XMLAdminFileHandler extends XMLFileHandler {
         }
         
         return tTypes;
+    }
+    
+    public Vector<CustomFieldDO> getAllCustomFieldTypesVector() {
+        NodeList nl = _document.getElementsByTagName("customfield");
+        int length = nl.getLength();
+        Vector<CustomFieldDO> custFs = new Vector<CustomFieldDO>(length);
+    
+        Node n;
+        CustomFieldDO custF;
+        NamedNodeMap nnm;
+   
+        for (int i =0; i < length; i++ ) {
+            n = nl.item( i );
+            nnm = n.getAttributes();
+            custF = new CustomFieldDO(n.getFirstChild().getNodeValue(), n.getFirstChild().getNodeValue());
+
+            custFs.add(custF);
+        }
+        
+        return custFs;
     }
 
     public DefaultTableModel getAllTrainingsTableModel() {

@@ -35,6 +35,9 @@ import javax.swing.JRootPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
+import com.jgoodies.animation.AnimationUtils;
+import com.jgoodies.animation.Animator;
+
 import net.illfounded.jpulsemonitor.JPulsemonitor;
 import net.illfounded.jpulsemonitor.ResourceLoader;
 import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
@@ -47,7 +50,9 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
 public class JAboutDialog extends JDialog {
     // Eclipse generated serialVersionUID
 	private static final long serialVersionUID = 209910072987467982L;
-
+	private static final int DEFAULT_FRAME_RATE = 30;
+	private Animator _animator;
+	
 	protected static XMLResourceBundle _bndl;
 	protected static JPulsemonitor _monitor;
 	protected JTextArea _text;
@@ -64,6 +69,7 @@ public class JAboutDialog extends JDialog {
 		initGUI();
 		pack();
 		setResizable(false);
+		_animator.start();
 		
 		// Centers the dialog within the screen
 		setLocationRelativeTo(_monitor.getMainFrame());
@@ -89,11 +95,30 @@ public class JAboutDialog extends JDialog {
        
         JPanel butP = new JPanel(new FlowLayout());
         butP.add(butOk);
-        getContentPane().add(new JImgPanel(), BorderLayout.NORTH);
+        
+        // Add a nice animation
+        final PulseLogoAnim introPage = new PulseLogoAnim();
+        final JPanel introPanel = introPage.build();
+        final JImgPanel jImg = new JImgPanel();
+        
+        introPanel.setPreferredSize(jImg.getPreferredSize());
+        
+        Runnable runnable = new Runnable() {
+            public void run() {
+            	getContentPane().remove(introPanel);
+            	getContentPane().add(jImg, BorderLayout.NORTH);
+            	pack();
+            }
+        };
+        
+        AnimationUtils.invokeOnStop(introPage.animation(), runnable);
+        _animator = new Animator(introPage.animation(), DEFAULT_FRAME_RATE);
+
+        getContentPane().add(introPanel, BorderLayout.NORTH);
         getContentPane().add(_text, BorderLayout.CENTER);
         getContentPane().add(butP, BorderLayout.SOUTH);
     }
-	
+
 	/**
 	 * In Microsoft Windows environments, users can press the Escape key to close dialog windows.
 	 * By default, with Java applications, this behavior is offered by neither AWT nor Swing dialogs.
