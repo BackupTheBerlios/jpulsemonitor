@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE administration SYSTEM "administration.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE administration SYSTEM "administration.dtd">
 <administration>
 	<configuration>
 		<limit.max>160</limit.max>
@@ -42,8 +40,6 @@
 		<user gender="male" id="u-1" size="1.86" weight="74.0" year_of_birth="1978">Adrian Bürki</user>
 	</users>
 
-	<customfields>
-		<customfield>Polarindex</customfield>
-	</customfields>
+	<customfields><customfield>Test</customfield></customfields>
 
 </administration>

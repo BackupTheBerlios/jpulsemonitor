@@ -1,27 +1,32 @@
 @author Adrian Buerki <ad@illfounded.net>
 
-beta 6
+rc1-0.2
+- Multiuser support improved.
+- Now it is possibie to add custom fields to store custom information.
+- Extended about dialog (animation added).
+
+beta6-0.1.6
 - Multiuser support added.
 - Extended preferences dialog.
 - Inserted these serialVersionUID Eclipse keeps complaining about.
 
-beta 5
+beta5-0.1.5
 - Added Export to CSV feature.
 - Jumped to Java 1.5 (rc1) and was forced to make some adaptations.
 - Enhanced the application with a very basic settings dialog.
 - JCalendar (wannawork.de) is discontinued, moved to NachoCalendar (nachocalendar.sourceforge.net).
 
-beta 4
+beta4-0.1.4
 - Some source code clean up.
 - Settings are loaded form administration file now.
 - An empty administration.xml file will be created if non exists.
 - Some deprecated methods replaced.
 - Some XML specific methods changed as to Java 1.5 (beta2).
 
-beta 3
+beta3-0.1.3
 - Some source code clean up.
 - Checking integrity before a delete operation is executed (that was a nasty bug).
 
-beta 2
+beta2-0.1.2
 - Some source code clean up.
 - Improved evaluation.
