@@ -34,6 +34,10 @@ img.navi {
 /* The main 'look and feel' */
 body, html {
     background-color: #FFFFFF;
+    background-attachment: fixed;
+    background-image: url(img/anim-runner.gif);
+    background-repeat: no-repeat;
+    background-position: bottom right;
     color: #454545;
     margin: 0;
 }
