@@ -25,7 +25,6 @@ import java.util.logging.Level;
 
 import javax.swing.table.DefaultTableModel;
 
-import net.illfounded.jpulsemonitor.xml.dataobject.CustomFieldDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.TrainingDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.TrainingTypeDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
@@ -89,26 +88,47 @@ public class XMLAdminFileHandler extends XMLFileHandler {
         return tTypes;
     }
     
-    public Vector<CustomFieldDO> getAllCustomFieldTypesVector() {
+    public String[] getCustomFieldTypes() {
         NodeList nl = _document.getElementsByTagName("customfield");
         int length = nl.getLength();
-        Vector<CustomFieldDO> custFs = new Vector<CustomFieldDO>(length);
+        String custFs[] = new String[length];
     
         Node n;
-        CustomFieldDO custF;
-        NamedNodeMap nnm;
    
         for (int i =0; i < length; i++ ) {
             n = nl.item( i );
-            nnm = n.getAttributes();
-            custF = new CustomFieldDO(n.getFirstChild().getNodeValue(), n.getFirstChild().getNodeValue());
-
-            custFs.add(custF);
+            custFs[i] = n.getFirstChild().getNodeValue();
         }
         
         return custFs;
     }
 
+    public void setCustomFieldTypes(String[] customFields) {
+        NodeList nl = _document.getElementsByTagName("customfields");
+        Node parent = nl.item(0);
+        
+        // Remove all old fields...
+        nl = parent.getChildNodes();
+        
+        int length = nl.getLength();
+        Node n;
+   
+        for (int i =0; i < length; i++) {
+            n = nl.item(0);
+            parent.removeChild(n);
+        }
+        
+        Element newT;
+        for (int i =0; i < customFields.length; i++ ) {
+        	newT = _document.createElement("customfield");
+        	newT.appendChild(_document.createTextNode(customFields[i]));
+        	parent.appendChild(newT);
+        }
+        
+        storeXML();
+    }
+
+    
     public DefaultTableModel getAllTrainingsTableModel() {
         NodeList nl = _document.getElementsByTagName("training");
     

@@ -137,6 +137,11 @@
 	<entry key="label.pref.months">Number of bygone months that are shown</entry>
 	<entry key="label.pref.Lookfeel">Turn on special Look and Feel (active after restart)</entry>
 	<entry key="label.pref.Gradient">Turn on gradient (active after restart)</entry>
+	<entry key="label.pref.custom">Custom fields</entry>
+	<entry key="label.pref.add">Add</entry>
+	<entry key="label.pref.delete">Delete</entry>
+	<entry key="label.pref.fieldname">Please enter a name for the new custom field.</entry>
+	<entry key="label.pref.deletewarning">If you delete a custom field you may loose data - proceed?</entry>
 	
 	<entry key="status.kcal">Total Kcal</entry>
 	<entry key="status.hr">Av heart rate</entry>

@@ -71,7 +71,7 @@ public class DeleteTrainingAction extends AbstractAction {
         int retV = JOptionPane.showConfirmDialog(_monitor.getMainFrame(), bndl.getString("dlg.delete.msg"), bndl.getString("dlg.delete.title"),
                     JOptionPane.YES_NO_OPTION);
 
-        if (retV == JOptionPane.NO_OPTION) {
+        if (retV != JOptionPane.YES_OPTION) {
             return;
         }
         

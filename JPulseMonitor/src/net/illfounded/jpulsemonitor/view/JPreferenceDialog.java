@@ -21,15 +21,25 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.ParseException;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
 
 import net.illfounded.jpulsemonitor.JPulsemonitor;
@@ -53,7 +63,9 @@ public class JPreferenceDialog extends JAdminDialog {
 	private JUserChooser _userChooser;
 	private JCheckBox _chBoxLookfeel;
 	private JCheckBox _chBoxGradient;
-	
+	private boolean _custFChanged;
+	private JList _custFields;
+	private DefaultListModel _model;
 	private XMLAdminFileHandler _adminF;
 	
 	/**
@@ -125,12 +137,23 @@ public class JPreferenceDialog extends JAdminDialog {
         lu.setLabelFor(_userChooser);
         centerPanel.add(_userChooser);
 
-        JList custFields = new JList(_adminF.getAllCustomFieldTypesVector());
-        JLabel lc = new JLabel("Custom fields" +" :", JLabel.TRAILING);
+        _model = new DefaultListModel();
+        String[] fieldTypes = _adminF.getCustomFieldTypes();
+        
+        for (int i=0; i < fieldTypes.length; i++) {
+        	_model.addElement(fieldTypes[i]);
+        }
+
+        _custFields = new JList(_model);
+        _custFields.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
+        JLabel lc = new JLabel(_bndl.getString("label.pref.custom") +" :", JLabel.TRAILING);
         centerPanel.add(lc);
-        lc.setLabelFor(custFields);
-        // custFields.setMinimumSize(new Dimension(150, 150));
-        centerPanel.add(custFields);
+        lc.setLabelFor(_custFields);
+        // custFields.setMinimumSize(new Dimension(50, 50));
+        // custFields.setPreferredSize(new Dimension(50, 50));
+        centerPanel.add(new JScrollPane(_custFields));
+        
+        buildPopupMenu();
         
         // Lay out the panel.
         SpringUtilities.makeCompactGrid(centerPanel, 7, 2, //rows, cols
@@ -206,6 +229,17 @@ public class JPreferenceDialog extends JAdminDialog {
 		
 		_adminF.setDefaultUser(_userChooser.getSelectedUser());
 		
+		if (_custFChanged) {
+			int length = _model.getSize();
+			String custFields[] = new String[length];
+			
+			for (int i=0; i<length; i++) {
+				custFields[i] = (String) _model.getElementAt(i);
+			}
+			
+			_adminF.setCustomFieldTypes(custFields);
+		}
+		
 		// Update Look and Feel and all Comboboxes...
         _monitor.changeLookAndFeel();
 		_monitor.getMainMediator().setAdminUpdated(true);
@@ -230,6 +264,59 @@ public class JPreferenceDialog extends JAdminDialog {
         _userChooser.setUsers(_adminF.getAllUsersVector());
     	_userChooser.setSelectedUser(_adminF.getDefaultUser());
     	
+    	_model.removeAllElements();
+        String[] fieldTypes = _adminF.getCustomFieldTypes();
+        
+        for (int i=0; i < fieldTypes.length; i++) {
+        	_model.addElement(fieldTypes[i]);
+        }
+    }
+    
+    private void buildPopupMenu() {
+    	final JPopupMenu menu = new JPopupMenu();
+    	
+        // Create and add a menu item
+        JMenuItem addItem = new JMenuItem(_bndl.getString("label.pref.add"));
+        JMenuItem deleteItem = new JMenuItem(_bndl.getString("label.pref.delete"));
+        
+        addItem.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				 String inputValue = JOptionPane.showInputDialog(_bndl.getString("label.pref.fieldname"));
+				 _model.addElement(inputValue);
+				 _custFChanged = true;
+			}
+        	
+        });
+
+        deleteItem.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				int retV = JOptionPane.showConfirmDialog(_custFields, _bndl.getString("label.pref.deletewarning"), _bndl.getString("dlg.delete.title"), JOptionPane.YES_NO_OPTION);
+
+        		if (retV == JOptionPane.YES_OPTION) {
+        			_model.removeElement(_custFields.getSelectedValue());
+        			_custFChanged = true;
+        		}
+			}
+        });
+
+        menu.add(addItem);
+        menu.add(deleteItem);
+        
+        // Set the component to show the popup menu
+        _custFields.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
+                if (evt.isPopupTrigger()) {
+                    menu.show(evt.getComponent(), evt.getX(), evt.getY());
+                }
+            }
+            public void mouseReleased(MouseEvent evt) {
+                if (evt.isPopupTrigger()) {
+                    menu.show(evt.getComponent(), evt.getX(), evt.getY());
+                }
+            }
+        });
     }
 
 }
