@@ -147,10 +147,10 @@ public class ExerciseDO {
      * @return Returns the weight.
      */
     public Float getWeight() {
-        if (_weight.isNaN()) {
+        if (_weight.isNaN() || _weight.floatValue() <= 0.0) {
             return null;
         }
-        
+
         return _weight;
     }
     

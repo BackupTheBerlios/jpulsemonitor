@@ -354,9 +354,9 @@ public class XMLAdminFileHandler extends XMLFileHandler {
         NamedNodeMap nnm = node.getAttributes();
         Node subN;
 
-        updateOrRemoveAttribut(node, nnm, "priority", trainingTDO.getPriority());
-        updateOrRemoveAttribut(node, nnm, "intensity", trainingTDO.getIntensity());
-        updateOrRemoveAttribut(node, nnm, "time", trainingTDO.getTime());
+        updateOrRemoveAttribut(nnm, "priority", trainingTDO.getPriority());
+        updateOrRemoveAttribut(nnm, "intensity", trainingTDO.getIntensity());
+        updateOrRemoveAttribut(nnm, "time", trainingTDO.getTime());
         
         if (!trainingTDO.getText().equals("")) {
             // If no child exists, create new one...
@@ -420,11 +420,11 @@ public class XMLAdminFileHandler extends XMLFileHandler {
         NamedNodeMap nnm = node.getAttributes();
         Node subN;
 
-        updateOrRemoveAttribut(node, nnm, "training_type", trainingDO.getTrainingType());
-        updateOrRemoveAttribut(node, nnm, "duration", trainingDO.getDuration());
-        updateOrRemoveAttribut(node, nnm, "distance", trainingDO.getDistance());
-        updateOrRemoveAttribut(node, nnm, "limits", trainingDO.getLimits());
-        updateOrRemoveAttribut(node, nnm, "active", trainingDO.getActive());
+        updateOrRemoveAttribut(nnm, "training_type", trainingDO.getTrainingType());
+        updateOrRemoveAttribut(nnm, "duration", trainingDO.getDuration());
+        updateOrRemoveAttribut(nnm, "distance", trainingDO.getDistance());
+        updateOrRemoveAttribut(nnm, "limits", trainingDO.getLimits());
+        updateOrRemoveAttribut(nnm, "active", trainingDO.getActive());
         
         if (!trainingDO.getText().equals("")) {
             // If no child exists, create new one...
@@ -455,12 +455,11 @@ public class XMLAdminFileHandler extends XMLFileHandler {
     public Node modifyUser(UserDO userDO) {
         Node node = findNodeById("user", userDO.getIdentification());
         NamedNodeMap nnm = node.getAttributes();
-        Node subN;
 
-        updateOrRemoveAttribut(node, nnm, "gender", userDO.getGender());
-        updateOrRemoveAttribut(node, nnm, "weight", userDO.getWeight());
-        updateOrRemoveAttribut(node, nnm, "size", userDO.getSize());
-        updateOrRemoveAttribut(node, nnm, "year_of_birth", userDO.getYearOfBirth());
+        updateOrRemoveAttribut(nnm, "gender", userDO.getGender());
+        updateOrRemoveAttribut(nnm, "weight", userDO.getWeight());
+        updateOrRemoveAttribut(nnm, "size", userDO.getSize());
+        updateOrRemoveAttribut(nnm, "year_of_birth", userDO.getYearOfBirth());
         
         if (!userDO.getName().equals("")) {
             // If no child exists, create new one...

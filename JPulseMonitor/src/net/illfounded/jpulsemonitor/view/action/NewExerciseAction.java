@@ -51,7 +51,6 @@ public class NewExerciseAction extends AbstractAction {
 		// Resolve mnemonic from resource bundle
 		char mneKey = bndl.getString("menu.edit.newexercise.mneKey").charAt(0);
 		putValue(Action.MNEMONIC_KEY, new Integer(mneKey));
-		// putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl " +mneKey));
     }
 
     /**

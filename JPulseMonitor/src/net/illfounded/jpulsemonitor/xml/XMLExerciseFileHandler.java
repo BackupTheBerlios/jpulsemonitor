@@ -428,13 +428,13 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 	    String date = formatter.format(exerciseDO.getDate());
 
-        updateOrRemoveAttribut(node, nnm, "date", date);
-        updateOrRemoveAttribut(node, nnm, "training", exerciseDO.getTrainingId());
-        updateOrRemoveAttribut(node, nnm, "weight", exerciseDO.getWeight());
-        updateOrRemoveAttribut(node, nnm, "kcal", exerciseDO.getKcal());
-        updateOrRemoveAttribut(node, nnm, "average_hr",exerciseDO.getAverageHR());
-        updateOrRemoveAttribut(node, nnm, "time_in_zone", exerciseDO.getTimeInZone());
-        updateOrRemoveAttribut(node, nnm, "exercise_time", exerciseDO.getExerciseTime());
+        updateOrRemoveAttribut(nnm, "date", date);
+        updateOrRemoveAttribut(nnm, "training", exerciseDO.getTrainingId());
+        updateOrRemoveAttribut(nnm, "weight", exerciseDO.getWeight());
+        updateOrRemoveAttribut(nnm, "kcal", exerciseDO.getKcal());
+        updateOrRemoveAttribut(nnm, "average_hr",exerciseDO.getAverageHR());
+        updateOrRemoveAttribut(nnm, "time_in_zone", exerciseDO.getTimeInZone());
+        updateOrRemoveAttribut(nnm, "exercise_time", exerciseDO.getExerciseTime());
 
         if (!exerciseDO.getText().equals("")) {
             // If no child exists, create new one...

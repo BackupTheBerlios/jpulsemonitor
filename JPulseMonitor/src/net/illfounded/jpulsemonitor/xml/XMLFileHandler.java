@@ -150,7 +150,7 @@ public abstract class XMLFileHandler {
 	/**
 	 * Helpermethod deal with attributes of nodes.
 	 */
-	protected void updateOrRemoveAttribut(Node parent, NamedNodeMap nnm,
+	protected void updateOrRemoveAttribut(NamedNodeMap nnm,
 			String attrName, Object value) {
 		Node attr;
 		// Attribut does not exist yet, insert...
@@ -160,13 +160,13 @@ public abstract class XMLFileHandler {
 			attr = _document.createAttribute(attrName);
 			attr.setNodeValue(value.toString());
 
-			parent.appendChild(attr);
+			nnm.setNamedItem(attr);
 			return;
 		}
 
 		// Attribut does exist, but needs to be removed...
 		if (attr != null && value == null) {
-			parent.removeChild(attr);
+			nnm.removeNamedItem(attr.getNodeName());
 			return;
 		}
 
