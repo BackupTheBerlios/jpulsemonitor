@@ -82,34 +82,33 @@ public class PulseLogoAnim {
         Animation welcome =
             BasicTextAnimation.defaultFade(
                 label1,
-                2500,
+                2700,
                 "Welcome to",
                 Color.darkGray);
 
         Animation jPulseAnimation =
             BasicTextAnimation.defaultFade(
                 label1,
-                2500,
+                2700,
                 "the JPulseMonitor",
                 Color.darkGray);
 
         Animation byAnimation =
             BasicTextAnimation.defaultFade(
                 label1,
-                2500,
+                2700,
                 "by Adrian Buerki",
                 Color.darkGray);
 
         Animation all =
             Animations.sequential(
                 new Animation[] {
-                    Animations.pause(1000),
-                    welcome,
-                    Animations.pause(1000),
-                    jPulseAnimation,
-                    Animations.pause(1000),
-                    byAnimation,
-                    Animations.pause(1000)
+                		welcome,
+						Animations.pause(1000),
+						jPulseAnimation,
+						Animations.pause(1000),
+						byAnimation,
+						Animations.pause(1000)
                     });
 
         return all;

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE administration SYSTEM "administration.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE administration SYSTEM "administration.dtd">
+
 <administration>
 	<configuration>
 		<limit.max>160</limit.max>
@@ -23,20 +25,25 @@
 		<training_type id="y-10" intensity="&gt;90% HFmax" priority="tief" time="60-90 Min">Wettkampfspezifischen Ausdauer</training_type>
 	</training_types>
 
-<trainings>
-	<comment>All possible trainings</comment>
-	<training active="yes" distance="8.0" duration="60.0" id="t-1" limits="126/165" training_type="y-6">Laufen (lang)</training>
-	<training active="no" distance="4.0" duration="30.0" id="t-2" limits="126/165" training_type="y-5">Laufen (kurz)</training>
-	<training active="no" distance="10.0" duration="60.0" id="t-3" limits="124/154" training_type="y-9">Rollerblading (gemütlich)</training>
-	<training active="yes" distance="10.0" duration="45.0" id="t-4" limits="126/165" training_type="y-6">Rollerblading (Madis retour)</training>
-	<training active="yes" distance="20.0" duration="45.0" id="t-5" limits="124/154" training_type="y-6">Fahrrad (Rolle)</training>
-<training active="yes" distance="10.0" duration="60.0" id="t-6" limits="126/165" training_type="y-6">Laufen (ganz oben rum)</training><training active="yes" distance="15.0" duration="60.0" id="t-7" limits="124/154" training_type="y-6">Rollerblading (Madis, Rütsch., B.bach)</training><training active="yes" distance="10.0" duration="60.0" id="t-8" limits="126/160" training_type="y-6">Mit Wernly (2-4 Steigerungsläufe)</training></trainings>
+	<trainings>
+		<comment>All possible trainings</comment>
+		<training active="yes" distance="8.0" duration="60.0" id="t-1" limits="126/165" training_type="y-6">Laufen (lang)</training>
+		<training active="no" distance="4.0" duration="30.0" id="t-2" limits="126/165" training_type="y-5">Laufen (kurz)</training>
+		<training active="no" distance="10.0" duration="60.0" id="t-3" limits="124/154" training_type="y-9">Rollerblading (gemütlich)</training>
+		<training active="yes" distance="10.0" duration="45.0" id="t-4" limits="126/165" training_type="y-6">Rollerblading (Madis retour)</training>
+		<training active="yes" distance="20.0" duration="45.0" id="t-5" limits="124/154" training_type="y-6">Fahrrad (Rolle)</training>
+		<training active="yes" distance="10.0" duration="60.0" id="t-6" limits="126/165" training_type="y-6">Laufen (ganz oben rum)</training>
+		<training active="yes" distance="15.0" duration="60.0" id="t-7" limits="124/154" training_type="y-6">Rollerblading (Madis, Rütsch., B.bach)</training>
+		<training active="yes" distance="10.0" duration="60.0" id="t-8" limits="126/160" training_type="y-6">Mit Wernly (2-4 Steigerungsläufe)</training>
+	</trainings>
 
-<users default="u-1">
-	<comment>All users (real persons) of the system</comment>
-	<user gender="male" id="u-1" size="1.86" weight="74.0" year_of_birth="1978">Adrian Bürki</user>
-</users>
+	<users default="u-1">
+		<comment>All users (real persons) of the system</comment>
+		<user gender="male" id="u-1" size="1.86" weight="74.0" year_of_birth="1978">Adrian Bürki</user>
+	</users>
 
-	<customfields><customfield>polarindex</customfield><customfield>o2</customfield></customfields>
+	<customfields>
+		<customfield>Polarindex</customfield>
+	</customfields>
 
 </administration>

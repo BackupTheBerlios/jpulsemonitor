@@ -114,7 +114,14 @@ public class JExercisePanel extends JPulsTab {
 	    selectedE.setText((String)tModel.getValueAt(rowIndex, 8));
 	    
 	    // Add custom fields
-	    
+		String value;
+		String name;
+		
+		for (int i=9; i<tModel.getColumnCount(); i++) {
+			value = (String)tModel.getValueAt(rowIndex, i);
+			name = _exerciseTable.getColumnName(i);
+			selectedE.setCustomField(name, value);
+		}
 	    
 	    return selectedE;
 	}

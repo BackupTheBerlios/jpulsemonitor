@@ -520,7 +520,13 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
 		while (it.hasNext()) {
 			custField = (String) it.next();
 			value = custFields.get(custField);
-			updateCustomField(exerciseDO.getIdentification(), custField, value);
+			
+			// Remove empty ones
+			if (value != null && !value.equals("")) {
+				updateCustomField(exerciseDO.getIdentification(), custField, value);
+			} else {
+				removeCustomField(exerciseDO.getIdentification(), custField);
+			}
 		}
         
         storeXML();
@@ -586,9 +592,20 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
     		createCustomField(exerciseId, custName, value);
     	} else {
     		NamedNodeMap nnm = n.getAttributes();
-    		updateOrRemoveAttribut(nnm, "id", exerciseId);
-        	updateOrRemoveAttribut(nnm, "name", custName);
-        	n.replaceChild(_document.createTextNode(value), n.getFirstChild());
+    		n.replaceChild(_document.createTextNode(value), n.getFirstChild());
+    	}
+    }
+    
+    /**
+     * Helpermethod to remove a custom field.
+     */
+    private void removeCustomField(String exerciseId, String custName) {
+    	Node n = lookupCustomValue(exerciseId, custName);
+		
+    	if (n == null) {
+    		return;
+    	} else {
+    		n.getParentNode().removeChild(n);
     	}
     }
     
