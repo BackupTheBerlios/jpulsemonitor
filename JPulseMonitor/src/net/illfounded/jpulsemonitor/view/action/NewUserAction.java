@@ -23,34 +23,33 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 import net.illfounded.jpulsemonitor.JPulsemonitor;
-import net.illfounded.jpulsemonitor.view.JExerciseDialog;
+import net.illfounded.jpulsemonitor.view.JTrainingTypeDialog;
+import net.illfounded.jpulsemonitor.view.JUserDialog;
 import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
-import net.illfounded.jpulsemonitor.xml.dataobject.ExerciseDO;
+import net.illfounded.jpulsemonitor.xml.dataobject.TrainingTypeDO;
+import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
+
 
 /**
  * @author Adrian Buerki <ad@illfounded.net>
  *
  * An impementation of an <code>Action</code>, which offers centralized control of functionality
- * and broadcast of property changes. The <code>NewExerciseAction</code> handles all events
- * related to the creation of a new exercise entity in the exercise xml-file.
+ * and broadcast of property changes. The <code>NewUserAction</code> handles all events
+ * related to the creation of a new user entity.
  */
-public class NewExerciseAction extends AbstractAction {
+public class NewUserAction extends AbstractAction {
     private JPulsemonitor _monitor;
     
     /**
-     * Creates a new NewTrainingAction
+     * Creates a new NewUserAction.
      */
-    public NewExerciseAction(JPulsemonitor monitor) {
-        super();
+    public NewUserAction(JPulsemonitor monitor) {
+        super( );
         _monitor = monitor;
         XMLResourceBundle bndl = _monitor.getResourceBundle();
         
-        putValue(Action.NAME, bndl.getString("but.addexercise"));
-		putValue(Action.SHORT_DESCRIPTION, bndl.getString("tooltip.addexercise"));
-		
-		// Resolve mnemonic from resource bundle
-		char mneKey = bndl.getString("menu.edit.newexercise.mneKey").charAt(0);
-		putValue(Action.MNEMONIC_KEY, new Integer(mneKey));
+        putValue(Action.NAME, bndl.getString("but.adduser") );
+		putValue(Action.SHORT_DESCRIPTION, bndl.getString("tooltip.adduser"));
     }
 
     /**
@@ -59,15 +58,14 @@ public class NewExerciseAction extends AbstractAction {
      * @param e A semantic event which indicates that a component-defined action occured
      */
     public void actionPerformed(ActionEvent e) {
-        ExerciseDO exerciseDO = JExerciseDialog.showExerciseDialog(_monitor);
+        UserDO userDO = JUserDialog.showUserDialog(_monitor);
         
-        if (exerciseDO == null) {
+        if (userDO == null) {
             return;
         }
         
-        _monitor.getExerciseFileHandler().createNewExercise(exerciseDO);
-        
-        _monitor.getMainFrame().getExercisePanel().refreshExercise();
+        _monitor.getAdminFileHandler().createNewUser(userDO);
+        _monitor.getMainFrame().getAdminPanel().refreshUser();
     }
 
 }

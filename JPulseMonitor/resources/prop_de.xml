@@ -93,6 +93,8 @@
 	<entry key="menu.help.pref">Einstellungen...</entry>
 	<entry key="menu.help.pref.mneKey">l</entry>
 	<entry key="tooltip.pref">Vornehmen einiger grundlegender Einstellungen</entry>
+	<entry key="but.adduser">Anwender hinzufügen</entry>
+	<entry key="tooltip.adduser">Einen neuen Anwender hinzufügen</entry>
 
 	<entry key="chart.hr">Herzfrequenz</entry>
 	<entry key="chart.value">Wert</entry>

@@ -93,6 +93,8 @@
 	<entry key="menu.help.pref">Preference...</entry>
 	<entry key="menu.help.pref.mneKey">P</entry>
 	<entry key="tooltip.pref">Change some basic settings</entry>
+	<entry key="but.adduser">Add user</entry>
+	<entry key="tooltip.adduser">Add a new user</entry>
 
 	<entry key="chart.hr">Heart rate</entry>
 	<entry key="chart.value">Value</entry>

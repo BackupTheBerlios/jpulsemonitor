@@ -446,6 +446,36 @@ public class XMLAdminFileHandler extends XMLFileHandler {
     }
     
     /**
+     * Creates and stores a new user entity. The given dataobject is used to take the values from.
+     * There is no validation within this method, be sure the data is consistent.
+     * 
+     * @param userDO the data used to build the node
+     * @return the newly created node
+     */
+    public Node createNewUser(UserDO userDO) {
+        NodeList nl = _document.getElementsByTagName("users");
+        Node parent = nl.item(0);
+        
+        Element newU = _document.createElement("user");
+        
+        checkAndInsertAttribut(newU, "id", userDO.getIdentification());
+        checkAndInsertAttribut(newU, "gender", userDO.getGender());
+        checkAndInsertAttribut(newU, "weight", userDO.getWeight());
+        checkAndInsertAttribut(newU, "size", userDO.getSize());
+        checkAndInsertAttribut(newU, "year_of_birth", userDO.getYearOfBirth());
+        
+        if (!userDO.getName().equals("")) {
+        	newU.appendChild(_document.createTextNode(userDO.getName()));
+        }
+        
+        parent.appendChild(newU);
+        
+        storeXML();
+        
+        return newU;
+    }
+    
+    /**
      * Modifies an exixting user element. The given dataobject is used to take the values from.
      * There is no validation within this method, be sure the data is consistent.
      * 

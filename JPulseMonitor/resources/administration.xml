@@ -3,7 +3,7 @@
 <configuration>
 	<limit.max>160</limit.max>
 	<limit.min>126</limit.min>
-	<nbr.visible.months>6</nbr.visible.months>
+	<nbr.visible.months>3</nbr.visible.months>
 	<app.maximized>no</app.maximized>
 	<app.lookfeel.on>yes</app.lookfeel.on>
 	<app.gradient.on>no</app.gradient.on>
@@ -30,7 +30,7 @@
 	<training active="no" distance="10.0" duration="60.0" id="t-3" limits="124/154" training_type="y-9">Rollerblading (gemütlich)</training>
 	<training active="yes" distance="10.0" duration="45.0" id="t-4" limits="126/165" training_type="y-6">Rollerblading (Madis retour)</training>
 	<training active="yes" distance="20.0" duration="45.0" id="t-5" limits="124/154" training_type="y-6">Fahrrad (Rolle)</training>
-<training active="yes" distance="10.0" duration="60.0" id="t-6" limits="126/165" training_type="y-6">Laufen (ganz oben rum)</training><training active="yes" distance="15.0" duration="60.0" id="t-7" limits="124/154" training_type="y-6">Rollerblading (Madis, Rütsch., B.bach)</training></trainings>
+<training active="yes" distance="10.0" duration="60.0" id="t-6" limits="126/165" training_type="y-6">Laufen (ganz oben rum)</training><training active="yes" distance="15.0" duration="60.0" id="t-7" limits="124/154" training_type="y-6">Rollerblading (Madis, Rütsch., B.bach)</training><training active="yes" distance="10.0" duration="60.0" id="t-8" limits="126/160" training_type="y-6">Mit Wernly (2-4 Steigerungsläufe)</training></trainings>
 
 <users default="u-1">
 	<comment>All users (real persons) of the system</comment>

@@ -32,7 +32,7 @@ import org.w3c.dom.Node;
  * not editable and so on...
  */
 public class AdminTableModel extends DefaultTableModel {
-    private String[] _fields;
+	private String[] _fields;
     private Vector<Node> _nodeVector;
     
     /**

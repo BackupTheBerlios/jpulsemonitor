@@ -63,7 +63,6 @@ public class NewTrainingTypeAction extends AbstractAction {
         }
         
         _monitor.getAdminFileHandler().createNewTrainingType(trainingTDO);
-        
         _monitor.getMainFrame().getAdminPanel().refreshTrainingType();
     }
 
