@@ -86,7 +86,7 @@ public class JUserDialog extends JAdminDialog {
         _tFieldWeight.setValue(new Float(80.00f));
 
         _tFieldSize = new JFormattedTextField(formatWeight);
-        _tFieldSize.setValue(new Float(180.00f));
+        _tFieldSize.setValue(new Float(1.8f));
         
 		_tFieldYearOfBirth = new JFormattedTextField(new Integer(1980));
 		
@@ -236,7 +236,7 @@ public class JUserDialog extends JAdminDialog {
     public void reset() {
         _userDO = null;
         _tFieldWeight.setValue(new Float(80.00f));
-        _tFieldSize.setValue(new Float(180.00f));
+        _tFieldSize.setValue(new Float(1.8f));
         _tFieldYearOfBirth.setValue(new Integer(1980));
         _cbGender.setSelectedIndex(0);
     }

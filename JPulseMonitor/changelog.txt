@@ -1,5 +1,10 @@
 @author Adrian Buerki <ad@illfounded.net>
 
+beta 6
+- Multiuser support added.
+- Extended preferences dialog.
+- Inserted these serialVersionUID Eclipse keeps complaining about.
+
 beta 5
 - Added Export to CSV feature.
 - Jumped to Java 1.5 (rc1) and was forced to make some adaptations.

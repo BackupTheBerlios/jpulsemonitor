@@ -70,6 +70,7 @@ public class ActionManager {
     
     private NewUserAction _newUser;
     private EditUserAction _editUser;
+    private DeleteUserAction _deleteUser;
     
     private EvaluateAllAction _evalAll;
     private AboutAction _about;
@@ -195,7 +196,10 @@ public class ActionManager {
          	return _export;
          	
          case DELETE_USER:
-             return new EmptyAction();
+             if (_deleteUser == null) {
+             	_deleteUser = new DeleteUserAction(_monitor);
+             }
+             return _deleteUser;
              
         default:
             throw new IllegalArgumentException("Unknown action type: " + type);

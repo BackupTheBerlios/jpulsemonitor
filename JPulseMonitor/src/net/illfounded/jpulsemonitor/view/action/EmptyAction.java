@@ -28,8 +28,10 @@ import javax.swing.Action;
  * An impementation of an <code>Action</code> this is a filler object, not doing anything.
  */
 public class EmptyAction extends AbstractAction {
-    
-    /**
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -5906866641060880578L;
+
+	/**
      * Creates a new EmptyAction
      */
     public EmptyAction() {

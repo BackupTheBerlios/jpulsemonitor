@@ -35,7 +35,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
  * related to the modification of a exercise element in the administration xml-file.
  */
 public class EditUserAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 3053490661961438647L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new EditUserAction

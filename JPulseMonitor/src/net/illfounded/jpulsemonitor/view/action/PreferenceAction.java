@@ -34,7 +34,10 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
  * and broadcast of property changes. The <code>PreferenceAction</code> opens up the settings dialog.
  */
 public class PreferenceAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -5487812848991685089L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new NewTrainingAction

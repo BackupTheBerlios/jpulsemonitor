@@ -3,7 +3,7 @@
 
 <properties>
 	<comment>Sprach abhängige Texte</comment>
-	<entry key="app.title">JPulseMonitor beta5</entry>
+	<entry key="app.title">JPulseMonitor beta6</entry>
 	<entry key="session">Session</entry>
 	<entry key="user">Anwender</entry>
 	<entry key="menu.file">Datei</entry>
@@ -95,6 +95,12 @@
 	<entry key="tooltip.pref">Vornehmen einiger grundlegender Einstellungen</entry>
 	<entry key="but.adduser">Anwender hinzufügen</entry>
 	<entry key="tooltip.adduser">Einen neuen Anwender hinzufügen</entry>
+	<entry key="defaultuser">Standard Anwender</entry>
+	<entry key="defaultuser.tooltip">Wählen Sie den standardmässig selektierten Anwender</entry>
+	<entry key="dlg.deleteDUser.msg">Es ist nicht möglich den Standard Anwender zu löschen. Gehen Sie in die Einstellungen und ändern Sie zuerst den Standard Anwender.</entry>
+	<entry key="dlg.deleteUser.msg">Der ausgewählte Anwender wird gelöscht. Die Datei mit den Trainingsdaten bleibt aber weiterhin auf der Festplatte.</entry>
+	
+	
 
 	<entry key="chart.hr">Herzfrequenz</entry>
 	<entry key="chart.value">Wert</entry>
@@ -141,7 +147,7 @@
 	<entry key="label.pref.Lookfeel">Aktiviere spezielles Look and Feel (Sichtbar nach Neustart)</entry>
 	<entry key="label.pref.Gradient">Aktiviere Gradient (Sichtbar nach Neustart)</entry>
 	
-	<entry key="about.text">JPulsemonitor (v. beat 5) is free software.
+	<entry key="about.text">JPulsemonitor (v. beat 6) is free software.
 		
 That means you have the freedom to:
  * run the program, for any purpose

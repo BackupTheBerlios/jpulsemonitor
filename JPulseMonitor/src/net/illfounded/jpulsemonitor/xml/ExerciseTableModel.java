@@ -32,7 +32,10 @@ import org.w3c.dom.Node;
  * not editable and so on...
  */
 public class ExerciseTableModel extends DefaultTableModel {
-    private String[] _fields;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 7527377212790723129L;
+
+	private String[] _fields;
     private Vector<Node> _nodeVector;
     
     /**

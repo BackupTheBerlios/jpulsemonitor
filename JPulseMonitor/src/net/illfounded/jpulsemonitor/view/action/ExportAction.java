@@ -36,7 +36,10 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
  * and triggers the export to cvs.
  */
 public class ExportAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -5941526040028830835L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new ExportAction

@@ -37,7 +37,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.TrainingDO;
  * related to the deletation of a training entity in the adminstration xml-file.
  */
 public class DeleteTrainingAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 1156800832902012427L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new DeleteTrainingAction

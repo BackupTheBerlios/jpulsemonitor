@@ -35,7 +35,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.ExerciseDO;
  * related to the creation of a new exercise entity in the exercise xml-file.
  */
 public class NewExerciseAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -2239712100947012035L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new NewTrainingAction

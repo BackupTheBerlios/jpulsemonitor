@@ -32,6 +32,9 @@ import org.w3c.dom.Node;
  * not editable and so on...
  */
 public class AdminTableModel extends DefaultTableModel {
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -7590858892122457308L;
+
 	private String[] _fields;
     private Vector<Node> _nodeVector;
     

@@ -34,7 +34,10 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
  * panel and starts the evaluation right away.
  */
 public class EvaluateAllAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 9144365413883888348L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new NewTrainingAction

@@ -36,7 +36,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.ExerciseDO;
  * related to the deletation of a exercise element in the adminstration xml-file.
  */
 public class DeleteExerciseAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -2818645767277518757L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new DeleteExerciseAction

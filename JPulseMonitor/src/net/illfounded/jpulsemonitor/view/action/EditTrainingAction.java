@@ -36,7 +36,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.TrainingDO;
  * related to the modification of a training entity in the adminstration xml-file.
  */
 public class EditTrainingAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -7040868552707830445L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new NewTrainingAction

@@ -3,7 +3,7 @@
 
 <properties>
 	<comment>Language spezific keys</comment>
-	<entry key="app.title">JPulseMonitor beta5</entry>
+	<entry key="app.title">JPulseMonitor beta6</entry>
 	<entry key="session">Session</entry>
 	<entry key="user">User</entry>
 	<entry key="menu.file">File</entry>
@@ -95,6 +95,10 @@
 	<entry key="tooltip.pref">Change some basic settings</entry>
 	<entry key="but.adduser">Add user</entry>
 	<entry key="tooltip.adduser">Add a new user</entry>
+	<entry key="defaultuser">Default user</entry>
+	<entry key="defaultuser.tooltip">Select a default user, that will be selected at startup</entry>
+	<entry key="dlg.deleteDUser.msg">You have attempted to delete the default user, this is not allowed. Go to Preferences and change the default user first.</entry>
+	<entry key="dlg.deleteUser.msg">Going to delete the selected user form the system, but the data file will reside on the harddrive.</entry>
 
 	<entry key="chart.hr">Heart rate</entry>
 	<entry key="chart.value">Value</entry>
@@ -141,7 +145,7 @@
 	<entry key="status.bmi">BMI</entry>
 	<entry key="status.maxhr">Maximal heart rate</entry>
 	
-	<entry key="about.text">JPulsemonitor (v. beat 5) is free software.
+	<entry key="about.text">JPulsemonitor (v. beat 6) is free software.
 		
 That means you have the freedom to:
  * run the program, for any purpose

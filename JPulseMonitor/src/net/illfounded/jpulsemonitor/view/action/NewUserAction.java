@@ -23,10 +23,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 import net.illfounded.jpulsemonitor.JPulsemonitor;
-import net.illfounded.jpulsemonitor.view.JTrainingTypeDialog;
 import net.illfounded.jpulsemonitor.view.JUserDialog;
 import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
-import net.illfounded.jpulsemonitor.xml.dataobject.TrainingTypeDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
 
 
@@ -38,7 +36,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
  * related to the creation of a new user entity.
  */
 public class NewUserAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -3003447684432230855L;
+
+	private JPulsemonitor _monitor;
     
     /**
      * Creates a new NewUserAction.
