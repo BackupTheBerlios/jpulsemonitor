@@ -36,7 +36,10 @@ import javax.swing.JTextArea;
  * Like exceptions or validation errors...
  */
 public class JErrorDialog extends JDialog {
-    private JTextArea _tAreaDescription;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -2244557222171743162L;
+
+	private JTextArea _tAreaDescription;
     private JButton _butOK;
     private String _title;
     private String _message;

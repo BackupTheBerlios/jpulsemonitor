@@ -269,6 +269,25 @@ public class XMLAdminFileHandler extends XMLFileHandler {
         return null;
     }
     
+    /**
+     * Stores the default user of the system to the administrational XML-file.
+     *  
+     * @param user - the user to set as default.
+     */
+    public void setDefaultUser(UserDO user) {
+        try {
+            NodeList nl = _document.getElementsByTagName("users");
+            NamedNodeMap nnm = nl.item(0).getAttributes();
+            String userID = user.getIdentification();
+            
+            updateOrRemoveAttribut(nnm, "default", userID);
+            
+            storeXML();
+        } catch (Exception exe) {
+            log(Level.WARNING, "Setting default user failed", exe);
+        }
+    }
+    
     public DefaultTableModel getAllUsersTableModel() {
         NodeList nl = _document.getElementsByTagName("user");
 

@@ -66,6 +66,9 @@ public class NewUserAction extends AbstractAction {
         
         _monitor.getAdminFileHandler().createNewUser(userDO);
         _monitor.getMainFrame().getAdminPanel().refreshUser();
+        
+        // Cause the userlists and trainings to be reread, if become visible
+        _monitor.getMainMediator().setAdminUpdated(true);
     }
 
 }

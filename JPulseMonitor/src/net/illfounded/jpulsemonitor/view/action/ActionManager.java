@@ -68,6 +68,7 @@ public class ActionManager {
     private EditExerciseAction _editExercise;
     private DeleteExerciseAction _deleteExercise;
     
+    private NewUserAction _newUser;
     private EditUserAction _editUser;
     
     private EvaluateAllAction _evalAll;
@@ -164,7 +165,10 @@ public class ActionManager {
              return _evalAll;
              
          case NEW_USER:
-             return new EmptyAction();
+         	if (_newUser == null) {
+         		_newUser = new NewUserAction(_monitor);
+         	}
+         	return _newUser;
              
          case EDIT_USER:
              if (_editUser == null){

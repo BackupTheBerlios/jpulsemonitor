@@ -42,10 +42,14 @@ import net.illfounded.jpulsemonitor.xml.XMLAdminFileHandler;
  * for some basic settings.
  */
 public class JPreferenceDialog extends JAdminDialog {
-    private static JPreferenceDialog _dialog;
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -3260884247916333210L;
+
+	private static JPreferenceDialog _dialog;
 	private JFormattedTextField _tFieldLimitMax;
 	private JFormattedTextField _tFieldLimitMin;
 	private JFormattedTextField _tFieldVisibleMonths;
+	private JUserChooser _userChooser;
 	private JCheckBox _chBoxLookfeel;
 	private JCheckBox _chBoxGradient;
 	
@@ -87,6 +91,9 @@ public class JPreferenceDialog extends JAdminDialog {
     		_chBoxGradient.setSelected(true);
     	}
 
+    	_userChooser = new JUserChooser(_adminF.getAllUsersVector(), _bndl.getString("defaultuser.tooltip"));
+    	_userChooser.setSelectedUser(_adminF.getDefaultUser());
+    	
         JLabel lma = new JLabel(_bndl.getString("label.pref.limit.max") +" :", JLabel.TRAILING);
         centerPanel.add(lma);
         lma.setLabelFor(_tFieldLimitMax);
@@ -111,9 +118,14 @@ public class JPreferenceDialog extends JAdminDialog {
         centerPanel.add(lh);
         lh.setLabelFor(_chBoxGradient);
         centerPanel.add(_chBoxGradient);
+        
+        JLabel lu = new JLabel(_bndl.getString("defaultuser") +" :", JLabel.TRAILING);
+        centerPanel.add(lu);
+        lu.setLabelFor(_userChooser);
+        centerPanel.add(_userChooser);
 
         // Lay out the panel.
-        SpringUtilities.makeCompactGrid(centerPanel, 5, 2, //rows, cols
+        SpringUtilities.makeCompactGrid(centerPanel, 6, 2, //rows, cols
                 6, 6, //initX, initY
                 6, 6); //xPad, yPad
         
@@ -148,7 +160,6 @@ public class JPreferenceDialog extends JAdminDialog {
 	
 	/**
 	 * Stores the entered data in the internal dataobject.
-	 *
 	 */
 	protected void storeData() throws ParseException {
 		int min;
@@ -186,6 +197,8 @@ public class JPreferenceDialog extends JAdminDialog {
 		_adminF.setConfiguration("app.lookfeel.on", _chBoxLookfeel.isSelected());
 		_adminF.setConfiguration("app.gradient.on", _chBoxGradient.isSelected());
 		
+		_adminF.setDefaultUser(_userChooser.getSelectedUser());
+		
 		// Update Look and Feel and all Comboboxes...
         _monitor.changeLookAndFeel();
 		_monitor.getMainMediator().setAdminUpdated(true);
@@ -206,6 +219,10 @@ public class JPreferenceDialog extends JAdminDialog {
         if (ResourceLoader.getSetting("app.gradient.on")) {
     		_chBoxGradient.setSelected(true);
     	}
+        
+        _userChooser.setUsers(_adminF.getAllUsersVector());
+    	_userChooser.setSelectedUser(_adminF.getDefaultUser());
+    	
     }
 
 }

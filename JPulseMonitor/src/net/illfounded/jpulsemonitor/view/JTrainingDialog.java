@@ -53,7 +53,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.TrainingTypeDO;
  * showMultiQualiDialog methods.
  */
 public class JTrainingDialog extends JAdminDialog {
-    private static JTrainingDialog _dialog;
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 4177796523712283488L;
+
+	private static JTrainingDialog _dialog;
 	private static TrainingDO _trainingDO;
 	private JFormattedTextField _tFieldDuration;
 	private JFormattedTextField _tFieldDistance;

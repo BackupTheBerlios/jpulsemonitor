@@ -52,7 +52,10 @@ import net.sf.nachocalendar.components.DateField;
  * showMultiQualiDialog methods.
  */
 public class JExerciseDialog extends JAdminDialog {
-    private static JExerciseDialog _dialog;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -2878495371041676351L;
+
+	private static JExerciseDialog _dialog;
 	private static ExerciseDO _exerciseDO;
 	private JFormattedTextField _tFieldHeartrate;
 	private JFormattedTextField _tFieldKcal;

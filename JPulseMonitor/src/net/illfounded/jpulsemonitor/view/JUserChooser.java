@@ -38,7 +38,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
  * A visual component to display the users and select exactly one of them.
  */
 public class JUserChooser extends JPanel implements ItemSelectable, Serializable {
-    private JComboBox _box;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 5693246355244300168L;
+
+	private JComboBox _box;
     private JLabel _lbl;
     private Logger _log;
 
@@ -46,7 +49,9 @@ public class JUserChooser extends JPanel implements ItemSelectable, Serializable
      * Constructs a new <code>JUserChooser</code>. It takes a <code>Vector</code> of users
      * and uses it to initializes all the <code>JComboBox</code>.
      * 
-     * @param factory an xp6-factory to get the ResourceBundle and the DBAccess
+     * @param users The users to initalize <code>JUserChooser</code> with.
+     * @param text The text shown next to the ComboBox.
+     * @param tooltip The tooltip, the text displays when the cursor lingers over the component.
      */
     public JUserChooser(Vector<UserDO> users, String text, String tooltip) {
         super();
@@ -57,6 +62,23 @@ public class JUserChooser extends JPanel implements ItemSelectable, Serializable
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 2));
         this.setToolTipText(tooltip);
         this.add(_lbl);
+        this.add(_box);
+    }
+    
+    /**
+     * Constructs a new <code>JUserChooser</code>. It takes a <code>Vector</code> of users
+     * and uses it to initializes all the <code>JComboBox</code>.
+     * 
+     * @param users The users to initalize <code>JUserChooser</code> with.
+     * @param tooltip The tooltip, the text displays when the cursor lingers over the component.
+     */
+    public JUserChooser(Vector<UserDO> users, String tooltip) {
+        super();
+        _log = Logger.getLogger("net.illfounded.jpulsemonitor");
+        _box = new JComboBox(users);
+        
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 2));
+        this.setToolTipText(tooltip);
         this.add(_box);
     }
 
@@ -103,7 +125,7 @@ public class JUserChooser extends JPanel implements ItemSelectable, Serializable
     /**
      * Returns the selected user or null if no items are selected.
      * 
-     * @return the selected user identification
+     * @return the selected user identification.
      */
     public String getSelectedUserId() {
         if (_box.getSelectedItem() == null) {
@@ -112,6 +134,39 @@ public class JUserChooser extends JPanel implements ItemSelectable, Serializable
         
         UserDO user = (UserDO)_box.getSelectedItem();
         return user.getIdentification();
+    }
+    
+    /**
+     * Returns the selected user or null if no items are selected.
+     * 
+     * @return the selected user.
+     */
+    public UserDO getSelectedUser() {
+        if (_box.getSelectedItem() == null) {
+            return null;
+        }
+        
+        return (UserDO)_box.getSelectedItem();
+    }
+    
+    /**
+     * Sets the selected user. If the given <code>UserDO</code> is not in the list
+     * it will be added and the selection will change to this user.
+     * 
+     * If this constitutes a change in the selected item, ItemListeners added to
+     * the combo box will be notified with one or two ItemEvents. If there is a
+     * current selected item, an ItemEvent will be fired and the state change will
+     * be ItemEvent.DESELECTED. If anObject is in the list and is not currently
+     * selected then an ItemEvent will be fired and the state change will be
+     * ItemEvent.SELECTED.
+     * 
+     * ActionListeners added to the combo box will be notified with an ActionEvent
+     * when this method is called.
+     * 
+     * @param user - The user to select.
+     */
+    public void setSelectedUser(UserDO user) {
+        _box.setSelectedItem(user);
     }
     
 }

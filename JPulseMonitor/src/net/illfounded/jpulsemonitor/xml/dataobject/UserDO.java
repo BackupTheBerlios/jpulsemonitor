@@ -186,4 +186,35 @@ public class UserDO {
         return _name.trim();
     }
     
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * Two user are considered equal, if they have the same identification.
+     * Note that it may be necessary to override the hashCode method too.
+     * 
+     * @param obj - the reference object with which to compare. 
+     * @return true if this object is the same as the obj argument; false otherwise.
+     */
+    public boolean equals(Object obj) {
+    	if (obj instanceof UserDO) {
+    		String id = ((UserDO)obj).getIdentification();
+    		
+    		if (_id.equals(id)) {
+    			return true;
+    		}
+    	}
+    	
+    	return false;
+    }
+    
+    /**
+     * Returns a hash code value for the object. This method is supported
+     * for the benefit of hashtables such as those provided by
+     * java.util.Hashtable.
+     * 
+     * @return a hash code value for this object.
+     */
+    public int hashCode() {
+    	return _id.hashCode();
+    }
+
 }

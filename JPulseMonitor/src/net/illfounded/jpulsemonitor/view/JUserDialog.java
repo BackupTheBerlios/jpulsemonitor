@@ -47,7 +47,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
  * showMultiQualiDialog methods.
  */
 public class JUserDialog extends JAdminDialog {
-    private static JUserDialog _dialog;
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -1926860478305829569L;
+
+	private static JUserDialog _dialog;
 	private static UserDO _userDO;
 	private JFormattedTextField _tFieldWeight;
 	private JFormattedTextField _tFieldSize;

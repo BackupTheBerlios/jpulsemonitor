@@ -34,7 +34,10 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
  * and broadcast of property changes. The <code>AboutAction</code> opens up the about dialog.
  */
 public class AboutAction extends AbstractAction {
-    private JPulsemonitor _monitor;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -7010599961726908578L;
+
+	private JPulsemonitor _monitor;
     private JAboutDialog _dlg;
     
     /**

@@ -79,7 +79,9 @@ public class ExerciseMediator implements ChangeListener, ItemListener {
      * If the user changed the current user, we will be notified.
      */
     public void itemStateChanged(ItemEvent e) {
-        _exPanel.selectedUserChanged();
+    	if (e.getStateChange() == ItemEvent.SELECTED) {
+    		_exPanel.selectedUserChanged();	
+    	}
     }
     
 }

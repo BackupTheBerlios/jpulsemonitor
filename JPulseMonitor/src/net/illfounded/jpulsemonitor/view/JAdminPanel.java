@@ -52,7 +52,10 @@ import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
  * A GUI component holding the administration related tables.
  */
 public class JAdminPanel extends JPulsTab {
-    private XMLResourceBundle _bndl;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 145758158762790286L;
+
+	private XMLResourceBundle _bndl;
     private XMLAdminFileHandler _adminF;
     private ActionManager _aManager;
     private JTable _trainingTTable;
@@ -291,6 +294,8 @@ public class JAdminPanel extends JPulsTab {
                 if (e.getClickCount() == 2 ) {
                     Action a = _aManager.getAction(ActionManager.EDIT_USER);
                     a.actionPerformed(new ActionEvent(e.getSource(), e.getID(), null));
+                } else {
+                	updateStausPanel();
                 }
              }
         });
@@ -301,7 +306,7 @@ public class JAdminPanel extends JPulsTab {
 	    if (rowIndex < 0) {
 	        return;
 	    }
-	    
+
 	    TableModel tModel = _userTable.getModel();
 	    // "id", "weight", "year_of_birth", "gender", "name"
 	    float weight = Float.parseFloat((String)tModel.getValueAt(rowIndex, 1));

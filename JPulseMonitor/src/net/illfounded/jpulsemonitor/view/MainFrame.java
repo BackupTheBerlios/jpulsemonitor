@@ -41,7 +41,10 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
 public class MainFrame extends JFrame{
-    private XMLResourceBundle _bndl;
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -7583434062535302432L;
+
+	private XMLResourceBundle _bndl;
     private MainMediator _mediator;
     private JPulsemonitor _monitor;
     private JAdminPanel _adminPanel;

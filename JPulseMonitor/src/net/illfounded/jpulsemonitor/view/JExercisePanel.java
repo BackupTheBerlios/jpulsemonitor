@@ -54,7 +54,10 @@ import net.sf.nachocalendar.components.DateField;
  * A GUI component holding the training data.
  */
 public class JExercisePanel extends JPulsTab {
-    private XMLResourceBundle _bndl;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 5689001765003206202L;
+
+	private XMLResourceBundle _bndl;
     private XMLExerciseFileHandler _exeF;
     private XMLAdminFileHandler _adminF;
     private ActionManager _aManager;
@@ -122,6 +125,7 @@ public class JExercisePanel extends JPulsTab {
 	    JPanel southPanel = new JPanel(new FlowLayout());
 	        
 	    _userChooser = new JUserChooser(_adminF.getAllUsersVector(), _bndl.getString("userchooser"), _bndl.getString("userchooser.tooltip"));
+	    _userChooser.setSelectedUser(_adminF.getDefaultUser());
 	    
 	    Calendar cal = Calendar.getInstance();
 	    _end = CalendarFactory.createDateField();
@@ -188,6 +192,7 @@ public class JExercisePanel extends JPulsTab {
 	
 	public void refreshUsers() {
 	    _userChooser.setUsers(_adminF.getAllUsersVector());
+	    _userChooser.setSelectedUser(_adminF.getDefaultUser());
 	}
 	
 	public void selectedUserChanged() {

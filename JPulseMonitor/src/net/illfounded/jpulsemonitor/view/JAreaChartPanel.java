@@ -49,6 +49,9 @@ import org.jfree.ui.TextAnchor;
  * Shows a nice LineChart.
  */
 public class JAreaChartPanel extends JPanel {
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 5442890972825127841L;
+
 	private String[] _axisLabels;
 	private String[] _legendLabels;
 	private Logger _log;

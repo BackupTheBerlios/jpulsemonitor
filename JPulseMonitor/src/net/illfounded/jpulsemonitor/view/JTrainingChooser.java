@@ -23,6 +23,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -39,17 +41,22 @@ import javax.swing.border.Border;
 
 import net.illfounded.jpulsemonitor.JPulsemonitor;
 import net.illfounded.jpulsemonitor.ResourceLoader;
+import net.illfounded.jpulsemonitor.xml.XMLExerciseFileHandler;
 import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
 import net.illfounded.jpulsemonitor.xml.dataobject.ExerciseDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.TrainingDO;
+import net.illfounded.jpulsemonitor.xml.dataobject.UserDO;
 
 /**
  * @author Adrian Buerki <ad@illfounded.net>
  * 
  * A JPanel showing all active trainings in a list of JCheckBoxes.
  */
-public class JTrainingChooser extends JPanel {
-    private XMLResourceBundle _bndl;
+public class JTrainingChooser extends JPanel implements ItemListener {
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = -1164153318958918525L;
+
+	private XMLResourceBundle _bndl;
     private Vector<JCheckBox> _checkBoxes;
     private JEvaluatePanel _diagram;
     private Logger _log;
@@ -60,6 +67,7 @@ public class JTrainingChooser extends JPanel {
     private JMinMaxPanel _panelMinMax;
     private JCheckBox _chkbMinMax;
     private JCheckBox _chkbWeight;
+    private XMLExerciseFileHandler _exeF;
 
     /**
      * Creates a new treepanel object.
@@ -71,6 +79,7 @@ public class JTrainingChooser extends JPanel {
         _checkBoxes = new Vector<JCheckBox>();
         _diagram = diagram;
         _log = Logger.getLogger("net.illfounded.jpulsemonitor");
+        _exeF =  _monitor.getExerciseFileHandler();
 
         Border border = BorderFactory.createEmptyBorder(20, 20, 20, 20);
         _diagram.setBorder(border);
@@ -251,7 +260,7 @@ public class JTrainingChooser extends JPanel {
      * Helpermethod to load all the exercises having a weight and construct an arry of chart values. 
      */
     private ChartValue[] getTrainingSeries(String trainingId) {
-        Collection exercises = _monitor.getExerciseFileHandler().getAllExercisesVectorByTraining(trainingId, _diagram.getStart(), _diagram.getEnd());
+        Collection exercises = _exeF.getAllExercisesVectorByTraining(trainingId, _diagram.getStart(), _diagram.getEnd());
         ExerciseDO exercise;
         ChartValue[] trainings = new ChartValue[exercises.size()];
         Iterator it = exercises.iterator();
@@ -267,6 +276,16 @@ public class JTrainingChooser extends JPanel {
        
         return trainings;
     }
+    
+    /**
+     * If the user changed the current user, we will be notified.
+     */
+    public void itemStateChanged(ItemEvent e) {
+    	if (e.getStateChange() == ItemEvent.SELECTED) {
+    		String userId = ((UserDO)e.getItem()).getIdentification();
+    		_exeF = _monitor.loadExerciseFileHandler(userId);
+    	}
+	}
     
 }
 

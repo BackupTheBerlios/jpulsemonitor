@@ -45,6 +45,9 @@ import net.illfounded.jpulsemonitor.xml.XMLResourceBundle;
  * JAboutDialog show some information about the application.
  */
 public class JAboutDialog extends JDialog {
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 209910072987467982L;
+
 	protected static XMLResourceBundle _bndl;
 	protected static JPulsemonitor _monitor;
 	protected JTextArea _text;
@@ -110,7 +113,10 @@ public class JAboutDialog extends JDialog {
 	
 	// inner class
 	class JImgPanel extends JPanel{ 
-	     private ImageIcon _img;
+	    // Eclipse generated serialVersionUID
+		private static final long serialVersionUID = 2678219020410489723L;
+
+		private ImageIcon _img;
 
 	     public JImgPanel() {
 	         _img = ResourceLoader.loadImageIcon(JAboutDialog.class, "logo_medium.jpg");

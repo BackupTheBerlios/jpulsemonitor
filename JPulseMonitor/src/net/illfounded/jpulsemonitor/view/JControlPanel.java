@@ -30,7 +30,10 @@ import net.illfounded.jpulsemonitor.view.action.ActionManager;
 
 
 public class JControlPanel extends JPanel implements Serializable {
-    private JButton _btnNew;
+	// Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 8496893509374733951L;
+
+	private JButton _btnNew;
     private JButton _btnEdit;
     private JButton _btnDelete;
     

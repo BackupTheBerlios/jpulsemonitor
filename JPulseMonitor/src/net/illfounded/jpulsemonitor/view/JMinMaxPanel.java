@@ -32,7 +32,10 @@ import javax.swing.JSpinner;
  * must be smaller than the maximal value.
  */
 public class JMinMaxPanel extends JPanel {
-    private JSpinner _minSp;
+    // Eclipse generated serialVersionUID
+	private static final long serialVersionUID = 2332121337630804470L;
+
+	private JSpinner _minSp;
     private JSpinner _maxSp;
     
     /**
