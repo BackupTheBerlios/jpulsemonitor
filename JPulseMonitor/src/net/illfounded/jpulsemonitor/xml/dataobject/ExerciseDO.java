@@ -20,6 +20,7 @@ package net.illfounded.jpulsemonitor.xml.dataobject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * @author Adrian Buerki <ad@illfounded.net>
@@ -37,6 +38,7 @@ public class ExerciseDO {
     private Date _date;
     private String _text;
     private Integer _kcal;
+    private HashMap<String, String> _custFields;
 
     /**
      * Creates a new ExerciseDO.
@@ -299,6 +301,32 @@ public class ExerciseDO {
         } catch (Exception e) {
             _kcal = new Integer(0);
         }
+    }
+    
+    /**
+     * Stores the data of a custom field.
+     * 
+     * @param fieldName - The name of the field.
+     * @param value - The value to be stored.
+     */
+    public void addCustomField(String fieldName, String value) {
+    	if (_custFields == null) {
+    		_custFields = new HashMap<String, String>();
+    	}
+    	_custFields.put(fieldName, value);
+    }
+    
+    /**
+     * Returns the data stored in a custom field.
+     * 
+     * @param fieldName - The name of the field.
+     */
+    public String getCustomField(String fieldName) {  		
+    	if (_custFields == null) {
+    		return "";
+    	}
+    	String retV = _custFields.get(fieldName);
+    	return retV == null ? "" : retV;
     }
     
 }

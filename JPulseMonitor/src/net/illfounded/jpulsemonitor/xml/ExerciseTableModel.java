@@ -17,9 +17,12 @@
  */
 package net.illfounded.jpulsemonitor.xml;
 
+import java.util.HashMap;
 import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
+
+import net.illfounded.jpulsemonitor.ResourceLoader;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -36,6 +39,7 @@ public class ExerciseTableModel extends DefaultTableModel {
 	private static final long serialVersionUID = 7527377212790723129L;
 
 	private String[] _fields;
+	private String[] _customFields;
     private Vector<Node> _nodeVector;
     
     /**
@@ -48,9 +52,10 @@ public class ExerciseTableModel extends DefaultTableModel {
     public ExerciseTableModel(String[] columnNames, String[] fieldsNames) {
         super(columnNames, 0);
         _fields = fieldsNames;
+        _customFields = ResourceLoader.loadAdminXML().getCustomFieldTypes();
         _nodeVector = new Vector<Node>();
     }
-    
+
     /**
      * Constructs a ExerciseTableModel. The fieldsNames are used to look up data in a
      * XML-<code>Node</code>.
@@ -60,6 +65,7 @@ public class ExerciseTableModel extends DefaultTableModel {
     public ExerciseTableModel(String[] fieldsNames) {
         super(0, 0);
         _fields = fieldsNames;
+        _customFields = ResourceLoader.loadAdminXML().getCustomFieldTypes();
         _nodeVector = new Vector<Node>();
     }
     
@@ -105,6 +111,46 @@ public class ExerciseTableModel extends DefaultTableModel {
         dataVector.add(newRow);
         _nodeVector.add(n);
     }
+    
+    /**
+     * Adds a new row to the <code>TableModel</code> the fields given during construcion
+     * will be used to parse the <code>Node</code>.
+     * 
+     * @param n - The <code>Node</code> to add.
+     * @param custFieldValues - The custom values.
+     */
+    public void addNode(Node n, HashMap custFieldValues) {
+        Vector<String> newRow = new Vector<String>(columnIdentifiers.size());
+        NamedNodeMap nnm = n.getAttributes();
+        
+        for (int i=0; i<_fields.length; i++) {
+            if (nnm.getNamedItem(_fields[i]) == null) {
+                newRow.add("");
+            } else {
+                newRow.add(nnm.getNamedItem(_fields[i]).getNodeValue());
+            }
+        }
+
+        String desc = "";
+        if (n.getFirstChild() != null) {
+            desc = n.getFirstChild().getNodeValue();
+        }
+        
+        newRow.add(desc);
+        
+        // Add custom fields...
+        for (int i=0; i<_customFields.length; i++) {
+        	String value = (String) custFieldValues.get(_customFields[i]);
+        	if (value == null) {
+        		newRow.add("");
+        	} else {
+        		newRow.add(value);
+        	}
+        }        
+        
+        dataVector.add(newRow);
+        _nodeVector.add(n);
+    }
 
     /**
      * Sets the object value for the cell at <code>column</code> and <code>row</code>.
@@ -125,5 +171,5 @@ public class ExerciseTableModel extends DefaultTableModel {
        
        // nnm.setNamedItem();
     }
-
+    
 }

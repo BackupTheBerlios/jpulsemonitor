@@ -3,7 +3,7 @@
 
 <properties>
 	<comment>Language spezific keys</comment>
-	<entry key="app.title">JPulseMonitor beta6</entry>
+	<entry key="app.title">JPulseMonitor rc1</entry>
 	<entry key="session">Session</entry>
 	<entry key="user">User</entry>
 	<entry key="menu.file">File</entry>
@@ -150,7 +150,7 @@
 	<entry key="status.bmi">BMI</entry>
 	<entry key="status.maxhr">Maximal heart rate</entry>
 	
-	<entry key="about.text">JPulsemonitor (v. beat 6) is free software.
+	<entry key="about.text">JPulsemonitor (v. rc1-0.2) is free software.
 		
 That means you have the freedom to:
  * run the program, for any purpose

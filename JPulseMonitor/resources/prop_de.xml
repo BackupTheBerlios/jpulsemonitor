@@ -3,7 +3,7 @@
 
 <properties>
 	<comment>Sprach abhängige Texte</comment>
-	<entry key="app.title">JPulseMonitor beta6</entry>
+	<entry key="app.title">JPulseMonitor rc1</entry>
 	<entry key="session">Session</entry>
 	<entry key="user">Anwender</entry>
 	<entry key="menu.file">Datei</entry>
@@ -150,7 +150,7 @@
 	<entry key="label.pref.fieldname">Bitte geben Sie einen Name für das neue Feld ein.</entry>
 	<entry key="label.pref.deletewarning">Löschen eines Feldes kann zu Datenverlust führen - wirklich löschen?</entry>	
 	
-	<entry key="about.text">JPulsemonitor (v. beat 6) is free software.
+	<entry key="about.text">JPulsemonitor (v. rc1-0.2) is free software.
 		
 That means you have the freedom to:
  * run the program, for any purpose

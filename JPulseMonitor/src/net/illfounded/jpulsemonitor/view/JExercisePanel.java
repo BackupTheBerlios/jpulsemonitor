@@ -112,6 +112,10 @@ public class JExercisePanel extends JPulsTab {
 	    selectedE.setTimeInZone((String)tModel.getValueAt(rowIndex, 6));
 	    selectedE.setExerciseTime((String)tModel.getValueAt(rowIndex, 7));
 	    selectedE.setText((String)tModel.getValueAt(rowIndex, 8));
+	    
+	    // Add custom fields
+	    
+	    
 	    return selectedE;
 	}
     
@@ -137,7 +141,7 @@ public class JExercisePanel extends JPulsTab {
 	    JPanel sessionBut = new JControlPanel(_aManager, ActionManager.NEW_EXERCISE, ActionManager.EDIT_EXERCISE, ActionManager.DELETE_EXERCISE);
 	    
 	    DefaultTableModel model = _exeF.getAllExercisesTableModel((Date)_start.getValue(), (Date)_end.getValue());
-	    model.setColumnIdentifiers(_headers);
+	    model.setColumnIdentifiers(mergeSArray(_headers,_adminF.getCustomFieldTypes()));
 	    
 	    _exerciseTable = new JTable(model);
 	    _exerciseTable.getTableHeader().setReorderingAllowed(false);
@@ -185,7 +189,8 @@ public class JExercisePanel extends JPulsTab {
 
 	public void refreshExercise() {
 	    DefaultTableModel model = _exeF.getAllExercisesTableModel((Date)_start.getValue(), (Date)_end.getValue());
-	    model.setColumnIdentifiers(_headers);
+
+	    model.setColumnIdentifiers(mergeSArray(_headers,_adminF.getCustomFieldTypes()));
 	    _exerciseTable.setModel(model);
 	    updateStausPanel();
 	}
@@ -277,5 +282,22 @@ public class JExercisePanel extends JPulsTab {
 	    _avgETime.setText(formater.format(avgETime));
 	    _avgTimeIZ.setText(formater.format(avgTimeIZ));
 	}
+	
+    /**
+     * Helpermethod to assemble column headers...
+     */
+    private String[] mergeSArray(String[]a1, String[] a2) {
+    	String[] a3 = new String[a1.length + a2.length];
+    	   	
+    	for (int i=0; i< a1.length; i++) {
+    		a3[i] = a1[i];
+    	}
+    	
+    	for (int i=0; i< a2.length; i++) {
+    		a3[a1.length + i] = a2[i];
+    	}
+    	
+    	return a3;
+    }
 
 }

@@ -20,6 +20,8 @@ package net.illfounded.jpulsemonitor;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -125,6 +127,9 @@ public class JPulsemonitor {
       * Start the app!!!
       */
     public static void main(String args[]) {
+    	// Configure logging
+    	Logger log = Logger.getLogger("net.illfounded.jpulsemonitor");
+    	log.setLevel(Level.WARNING);
         JPulsemonitor monitor = new JPulsemonitor( );
     }
     

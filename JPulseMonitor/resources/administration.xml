@@ -37,6 +37,6 @@
 	<user gender="male" id="u-1" size="1.86" weight="74.0" year_of_birth="1978">Adrian Bürki</user>
 </users>
 
-	<customfields><customfield>polarindex</customfield><customfield>o2</customfield><customfield>test1</customfield></customfields>
+	<customfields><customfield>polarindex</customfield><customfield>o2</customfield></customfields>
 
 </administration>

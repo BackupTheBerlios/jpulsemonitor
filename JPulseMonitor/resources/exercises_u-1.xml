@@ -38,8 +38,8 @@
 	<exercise average_hr="155" date="27-09-2004" exercise_time="48.41" id="e-35" kcal="638" time_in_zone="40.31" training="t-1"/><exercise average_hr="153" date="28-09-2004" exercise_time="55.05" id="e-36" kcal="717" time_in_zone="43.32" training="t-1"/><exercise average_hr="158" date="29-09-2004" exercise_time="50.34" id="e-37" kcal="689" time_in_zone="45.03" training="t-1"/><exercise average_hr="152" date="01-10-2004" exercise_time="55.21" id="e-38" kcal="718" time_in_zone="49.47" training="t-1">Mit Ule, Wernly und Beat</exercise><exercise average_hr="157" date="02-10-2004" exercise_time="47.57" id="e-39" kcal="643" time_in_zone="32.57" training="t-1">Mit Role</exercise><exercise average_hr="147" date="04-10-2004" exercise_time="56.16" id="e-40" kcal="676" time_in_zone="45.52" training="t-8" weight="74.3">Richtung Elzmatt</exercise><exercise average_hr="156" date="06-10-2004" exercise_time="47.41" id="e-41" kcal="637" time_in_zone="41.36" training="t-1"/><exercise average_hr="151" date="11-10-2004" exercise_time="55.54" id="e-42" kcal="697" time_in_zone="41.09" training="t-8" weight="74.7">Richtung Windhunderennbahn</exercise><exercise average_hr="157" date="12-10-2004" exercise_time="40.46" id="e-43" kcal="543" time_in_zone="21.01" training="t-1"/><exercise average_hr="158" date="31-10-2004" exercise_time="52.43" id="e-44" kcal="723" time_in_zone="16.41" training="t-1" weight="75.8">Erstes Training nach USA</exercise><exercise average_hr="159" date="04-11-2004" exercise_time="50.01" id="e-45" kcal="686" time_in_zone="41.04" training="t-1"/><exercise average_hr="152" date="08-11-2004" exercise_time="54.07" id="e-46" kcal="638" time_in_zone="47.47" training="t-1"/><exercise average_hr="155" date="13-11-2004" exercise_time="51.35" id="e-47" kcal="684" time_in_zone="43.53" training="t-1" weight="73.8"/></exercises>
 
 	<customfields>
-		<customfield id="e15" name="polarindex">12345</customfield>
-		<customfield id="e16" name="polarindex">54321</customfield>
-		<customfield id="e16" name="o2">12</customfield>
+		<customfield id="e-15" name="polarindex">12345</customfield>
+		<customfield id="e-16" name="polarindex">54321</customfield>
+		<customfield id="e-16" name="o2">12</customfield>
 	</customfields>
 </data>

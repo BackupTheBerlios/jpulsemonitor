@@ -57,12 +57,21 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
             NodeList nl = _document.getElementsByTagName("exercise");
     
             int length = nl.getLength();
+            HashMap custFields;
             ExerciseTableModel eTypes = new ExerciseTableModel(EXERCISE_FIELDS);
             Node n;
+            NamedNodeMap nnm;
         
-            for ( int i =0; i < length; i++ ) {
-                n = nl.item( i );
-                eTypes.addNode(n);
+            for (int i =0; i < length; i++) {
+                n = nl.item(i);
+                nnm = n.getAttributes();
+                custFields = lookupCustomValue(nnm.getNamedItem("id").getNodeValue());
+                
+                if (custFields.isEmpty()) {
+                	eTypes.addNode(n);
+                } else {
+                	eTypes.addNode(n, custFields);
+                }
             }
             return eTypes;
             
@@ -71,6 +80,38 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
         }
         
         return new DefaultTableModel();
+    }
+    
+    /**
+     * Returns the values of the custom field.
+     * 
+     * @param exerciseId - The exercise to look for.
+     * 
+     * @return A map of the custom values (zero or more).
+     */
+    public HashMap<String, String> lookupCustomValue(String exerciseId) {
+    	HashMap<String, String> map = new HashMap<String, String>();
+    	try {
+            NodeList nl = _document.getElementsByTagName("customfield");
+            int length = nl.getLength();
+            String id;
+
+            Node nField;
+            NamedNodeMap nnm;
+            
+            for (int i = 0; i < length; i++) {
+            	nField = nl.item(i);
+                nnm = nField.getAttributes();
+
+                id = nnm.getNamedItem("id").getNodeValue();
+                if (id.equals(exerciseId)) {
+                	map.put(nnm.getNamedItem("name").getNodeValue(), nField.getFirstChild().getNodeValue());
+                }
+            }
+        } catch (Exception exe) {
+            _log.log(Level.WARNING, "No custom field found for this exercise : " + exe.getMessage());
+        }
+        return map;
     }
     
     public DefaultTableModel getAllExercisesTableModel(Date start, Date end) {
@@ -83,6 +124,7 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
             NamedNodeMap nnm;
             DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             Date dateNode;
+            HashMap custFields;
             
             for ( int i =0; i < length; i++ ) {
                 n = nl.item( i );
@@ -96,7 +138,13 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
                         
                         if (dateNode.after(start) && dateNode.before(end)) {
                             // Is in period
-                            eTypes.addNode(n);
+                        	custFields = lookupCustomValue(nnm.getNamedItem("id").getNodeValue());
+                        	
+                        	if (custFields.isEmpty()) {
+                            	eTypes.addNode(n);
+                            } else {
+                            	eTypes.addNode(n, custFields);
+                            }
                         }
                     }
                 } catch (Exception exe1) {
