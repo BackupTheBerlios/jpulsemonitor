@@ -288,6 +288,9 @@ public class JPreferenceDialog extends JAdminDialog {
 
 			public void actionPerformed(ActionEvent e) {
 				 String inputValue = JOptionPane.showInputDialog(_bndl.getString("label.pref.fieldname"));
+				 if (inputValue == null || inputValue.equals("")) {
+				 	return;
+				 }
 				 _model.addElement(inputValue);
 				 _custFChanged = true;
 			}
