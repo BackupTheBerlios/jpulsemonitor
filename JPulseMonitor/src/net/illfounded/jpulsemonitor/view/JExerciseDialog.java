@@ -26,6 +26,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.BorderFactory;
@@ -36,9 +37,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import net.illfounded.jpulsemonitor.JPulsemonitor;
+import net.illfounded.jpulsemonitor.ResourceLoader;
 import net.illfounded.jpulsemonitor.xml.dataobject.ExerciseDO;
 import net.illfounded.jpulsemonitor.xml.dataobject.TrainingDO;
 import net.sf.nachocalendar.CalendarFactory;
@@ -65,6 +68,7 @@ public class JExerciseDialog extends JAdminDialog {
 	private DateField _cBoxDate;
 	private JFormattedTextField _tFieldInZone;
 	private JFormattedTextField _tFieldTime;
+	private HashMap<String, JTextField> _custFields;
 	
 	/**
 	 * Creates a new JExerciseDialog.
@@ -156,8 +160,26 @@ public class JExerciseDialog extends JAdminDialog {
         ldesc.setLabelFor(_tAreaDescription);
         centerPanel.add(scrollPane);
 
+        // Add custom fields...
+        String custFields[] = ResourceLoader.loadAdminXML().getCustomFieldTypes();
+        int nbrOfCF = custFields.length;
+        
+        if (nbrOfCF > 0) {
+        	_custFields = new HashMap<String, JTextField> ();
+        
+        	for (int i=0; i<nbrOfCF; i++) {
+        		JLabel desc = new JLabel(custFields[i] +" :", JLabel.TRAILING);
+        		centerPanel.add(desc);
+        		JTextField text = new JTextField();
+        		desc.setLabelFor(text);
+        		centerPanel.add(text);
+        	
+        		_custFields.put(custFields[i], text);
+        	}
+        }
+        
         // Lay out the panel.
-        SpringUtilities.makeCompactGrid(centerPanel, 8, 2, //rows, cols
+        SpringUtilities.makeCompactGrid(centerPanel, 8 + nbrOfCF, 2, //rows, cols
                 6, 6, //initX, initY
                 6, 6); //xPad, yPad
         
@@ -271,6 +293,18 @@ public class JExerciseDialog extends JAdminDialog {
 		    // May show an info dialog
 		    _exerciseDO.setWeight(new Float(Float.NaN));
 		}
+		
+		// Fill custom fields
+		Iterator it = _custFields.keySet().iterator();
+		String custField;
+		String value;
+		JTextField text;
+		while (it.hasNext()) {
+			custField = (String) it.next();
+			text = _custFields.get(custField);
+			value = text.getText();
+			_exerciseDO.setCustomField(custField, value);
+		}
 	}
 	
 	/**
@@ -306,6 +340,19 @@ public class JExerciseDialog extends JAdminDialog {
 			}
 		}
 		_cBoxTraining.setSelectedItem(selected);
+		
+		// Fill custom fields
+		it = _custFields.keySet().iterator();
+		String custField;
+		String value;
+		JTextField text;
+		while (it.hasNext()) {
+			custField = (String) it.next();
+			value = exercise.getCustomField(custField);
+			text = _custFields.get(custField);
+			
+			text.setText(value);
+		}
 	}
 
     /**
@@ -329,6 +376,30 @@ public class JExerciseDialog extends JAdminDialog {
         while(it.hasNext()) {
             _cBoxTraining.addItem(it.next());
         }
+        
+		// Clear custom fields
+		it = _custFields.keySet().iterator();
+		String custField;
+		JTextField text;
+		while (it.hasNext()) {
+			custField = (String) it.next();
+			text = _custFields.get(custField);
+			
+			text.setText("");
+		}
     }
 
+    /**
+     * Can be called in case a completely new initialisaiton is needed. 
+     * Better think of someting else, this is not a very nice solution.
+     */
+    public static void destroy() {
+    	if (_dialog == null) {
+    		return;
+    	}
+    	_dialog.dispose();
+    	_dialog = null;
+    	
+    }
+    
 }

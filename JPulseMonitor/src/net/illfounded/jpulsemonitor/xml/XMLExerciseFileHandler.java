@@ -22,6 +22,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 
@@ -65,7 +66,7 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
             for (int i =0; i < length; i++) {
                 n = nl.item(i);
                 nnm = n.getAttributes();
-                custFields = lookupCustomValue(nnm.getNamedItem("id").getNodeValue());
+                custFields = lookupCustomValues(nnm.getNamedItem("id").getNodeValue());
                 
                 if (custFields.isEmpty()) {
                 	eTypes.addNode(n);
@@ -89,7 +90,7 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
      * 
      * @return A map of the custom values (zero or more).
      */
-    public HashMap<String, String> lookupCustomValue(String exerciseId) {
+    public HashMap<String, String> lookupCustomValues(String exerciseId) {
     	HashMap<String, String> map = new HashMap<String, String>();
     	try {
             NodeList nl = _document.getElementsByTagName("customfield");
@@ -138,7 +139,7 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
                         
                         if (dateNode.after(start) && dateNode.before(end)) {
                             // Is in period
-                        	custFields = lookupCustomValue(nnm.getNamedItem("id").getNodeValue());
+                        	custFields = lookupCustomValues(nnm.getNamedItem("id").getNodeValue());
                         	
                         	if (custFields.isEmpty()) {
                             	eTypes.addNode(n);
@@ -451,8 +452,20 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
             newE.appendChild(_document.createTextNode(exerciseDO.getText()));
         }
 
-       parent.appendChild(newE);
+        parent.appendChild(newE);
         
+        // Deal with the custom fields...
+        HashMap<String, String> custFields = exerciseDO.getCustomFields();
+		Iterator it = custFields.keySet().iterator();
+		String custField;
+		String value;
+		
+		while (it.hasNext()) {
+			custField = (String) it.next();
+			value = custFields.get(custField);
+			createCustomField(exerciseDO.getIdentification(), custField, value);
+		}
+
         storeXML();
         
         return newE;
@@ -498,6 +511,18 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
             }
         }
 
+        // Deal with the custom fields...
+        HashMap<String, String> custFields = exerciseDO.getCustomFields();
+		Iterator it = custFields.keySet().iterator();
+		String custField;
+		String value;
+		
+		while (it.hasNext()) {
+			custField = (String) it.next();
+			value = custFields.get(custField);
+			updateCustomField(exerciseDO.getIdentification(), custField, value);
+		}
+        
         storeXML();
         
         return node;
@@ -534,6 +559,66 @@ public class XMLExerciseFileHandler extends XMLFileHandler {
             Date now = new Date();
             return "e-" + now.getTime();
         }
+    }
+    
+    /**
+     * Helpermethod to insert a new custom field.
+     */
+    private void createCustomField(String exerciseId, String custName, String value) {
+    	NodeList nl = _document.getElementsByTagName("customfields");
+    	Node parent = nl.item(0);
+		
+    	Element newE = _document.createElementNS(null, "customfield");
+    	newE.setAttribute("id", exerciseId);
+    	newE.setAttribute("name", custName);
+    	newE.appendChild(_document.createTextNode(value));
+	        	
+    	parent.appendChild(newE);
+    }
+    
+    /**
+     * Helpermethod to update a custom field.
+     */
+    private void updateCustomField(String exerciseId, String custName, String value) {
+    	Node n = lookupCustomValue(exerciseId, custName);
+		
+    	if (n == null) {
+    		createCustomField(exerciseId, custName, value);
+    	} else {
+    		NamedNodeMap nnm = n.getAttributes();
+    		updateOrRemoveAttribut(nnm, "id", exerciseId);
+        	updateOrRemoveAttribut(nnm, "name", custName);
+        	n.replaceChild(_document.createTextNode(value), n.getFirstChild());
+    	}
+    }
+    
+    /**
+     * Helpermethod to get a certain custom field.
+     */
+    public Node lookupCustomValue(String exerciseId, String custName) {
+    	try {
+            NodeList nl = _document.getElementsByTagName("customfield");
+            int length = nl.getLength();
+            String id;
+            String name;
+            Node nField;
+            NamedNodeMap nnm;
+            
+            for (int i = 0; i < length; i++) {
+            	nField = nl.item(i);
+                nnm = nField.getAttributes();
+                id = nnm.getNamedItem("id").getNodeValue();
+                if (id.equals(exerciseId)) {
+                	name = nnm.getNamedItem("name").getNodeValue();
+                	if (name.equals(custName)) {
+                		return nField;
+                	}
+                }
+            }
+        } catch (Exception exe) {
+            _log.log(Level.WARNING, "No custom field found for this exercise : " + exe.getMessage());
+        }
+        return null;
     }
     
 }

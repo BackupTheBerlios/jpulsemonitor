@@ -238,6 +238,11 @@ public class JPreferenceDialog extends JAdminDialog {
 			}
 			
 			_adminF.setCustomFieldTypes(custFields);
+			
+			/**
+			 * TODO Better think of someting else, this is not very nice.
+			 */
+			JExerciseDialog.destroy();
 		}
 		
 		// Update Look and Feel and all Comboboxes...

@@ -309,7 +309,7 @@ public class ExerciseDO {
      * @param fieldName - The name of the field.
      * @param value - The value to be stored.
      */
-    public void addCustomField(String fieldName, String value) {
+    public void setCustomField(String fieldName, String value) {
     	if (_custFields == null) {
     		_custFields = new HashMap<String, String>();
     	}
@@ -327,6 +327,13 @@ public class ExerciseDO {
     	}
     	String retV = _custFields.get(fieldName);
     	return retV == null ? "" : retV;
+    }
+    
+    /**
+     * Returns tall custom fields.
+     */
+    public HashMap<String, String> getCustomFields() {  		
+    	return _custFields;
     }
     
 }
