@@ -35,7 +35,7 @@
 		<exercise average_hr="155" date="13-09-2004" exercise_time="66.15" id="e-32" kcal="150" time_in_zone="52.04" training="t-6">Mit Ulei und Wernly</exercise>
 		<exercise average_hr="156" date="19-09-2004" exercise_time="53.21" id="e-33" kcal="708" time_in_zone="40.45" training="t-1">Neue Runde via. Hirschpark</exercise>
 		<exercise average_hr="152" date="21-09-2004" exercise_time="54.08" id="e-34" kcal="690" time_in_zone="33.14" training="t-1" weight="73.6"/>
-	</exercises>
+	<exercise average_hr="155" date="27-09-2004" exercise_time="48.41" id="e-35" kcal="638" time_in_zone="40.31" training="t-1"/><exercise average_hr="153" date="28-09-2004" exercise_time="55.05" id="e-36" kcal="717" time_in_zone="43.32" training="t-1"/><exercise average_hr="158" date="29-09-2004" exercise_time="50.34" id="e-37" kcal="689" time_in_zone="45.03" training="t-1"/></exercises>
 
 	<customfields>
 		<customfield id="e15" name="polarindex">12345</customfield>
