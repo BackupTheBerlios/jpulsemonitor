@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+<jar path="/home/kilkenny/workspace/JPulseMonitor/lib/jPulseMonitor.jar"/>
+<options buildIfNeeded="true" compress="false" descriptionLocation="/JPulseMonitor/jPulseMonitor.jardesc" exportErrors="true" exportWarnings="true" overwrite="false" saveDescription="true" useSourceFolders="false"/>
+<manifest generateManifest="false" mainClassHandleIdentifier="=JPulseMonitor/src&lt;net.illfounded.jpulsemonitor{JPulsemonitor.java[JPulsemonitor" manifestLocation="/JPulseMonitor/MANIFEST.MF" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+<sealing sealJar="false">
+<packagesToSeal/>
+<packagesToUnSeal/>
+</sealing>
+</manifest>
+<selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+<javaElement handleIdentifier="=JPulseMonitor/src"/>
+<file path="/JPulseMonitor/.project"/>
+<file path="/JPulseMonitor/.classpath"/>
+</selectedElements>
+</jardesc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD for administration -->
+<!ELEMENT administration (configuration?, training_types*, trainings*, users*, customfields) >
+<!ELEMENT trainings (comment?, training*) >
+<!ELEMENT training (#PCDATA) >
+<!ELEMENT training_types (comment?, training_type*) >
+<!ELEMENT training_type (#PCDATA) >
+<!ELEMENT comment (#PCDATA) >
+<!ELEMENT users (comment?, user*) >
+<!ELEMENT user (#PCDATA) >
+<!ELEMENT customfields (comment?, customfield*) >
+<!ELEMENT customfield (#PCDATA) >
+<!ELEMENT configuration (app.width?, app.height?, app.location.x?, app.location.y?, limit.max?, limit.min?, nbr.visible.months?, app.maximized?, app.lookfeel.on?, app.gradient.on?)>
+<!ELEMENT app.width (#PCDATA)>
+<!ELEMENT app.height (#PCDATA)>
+<!ELEMENT app.location.x (#PCDATA)>
+<!ELEMENT app.location.y (#PCDATA)>
+<!ELEMENT limit.max (#PCDATA)>
+<!ELEMENT limit.min (#PCDATA)>
+<!ELEMENT nbr.visible.months (#PCDATA)>
+<!ELEMENT app.maximized (#PCDATA)>
+<!ELEMENT app.lookfeel.on (#PCDATA)>
+<!ELEMENT app.gradient.on (#PCDATA)>
+
+<!ATTLIST training id ID #REQUIRED >
+<!ATTLIST training training_type IDREF #REQUIRED >
+<!ATTLIST training duration CDATA #IMPLIED >
+<!ATTLIST training limits CDATA #REQUIRED >
+<!ATTLIST training distance CDATA #IMPLIED >
+<!ATTLIST training active (yes | no) #REQUIRED >
+
+<!ATTLIST training_type id ID #REQUIRED >
+<!ATTLIST training_type priority CDATA #REQUIRED >
+<!ATTLIST training_type intensity CDATA #REQUIRED >
+<!ATTLIST training_type time CDATA #REQUIRED >
+
+<!ATTLIST users default IDREF #IMPLIED >
+<!ATTLIST user id ID #REQUIRED >
+<!ATTLIST user weight CDATA #REQUIRED >
+<!ATTLIST user size CDATA #REQUIRED >
+<!ATTLIST user year_of_birth CDATA #REQUIRED >
+<!ATTLIST user gender (male | female) #REQUIRED >

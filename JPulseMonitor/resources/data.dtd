@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD for exercise -->
+<!ELEMENT data (exercises, customfields) >
+<!ELEMENT exercises (comment?, exercise*) >
+<!ELEMENT exercise (#PCDATA) >
+<!ELEMENT customfields (comment?, customfield*)>
+<!ELEMENT customfield (#PCDATA) >
+
+<!ATTLIST exercises id ID #REQUIRED >
+<!ATTLIST exercise id ID #REQUIRED >
+<!ATTLIST exercise date CDATA #REQUIRED >
+<!ATTLIST exercise training CDATA #REQUIRED >
+<!ATTLIST exercise weight CDATA #IMPLIED>
+<!ATTLIST exercise kcal CDATA #IMPLIED >
+<!ATTLIST exercise average_hr CDATA #IMPLIED >
+<!ATTLIST exercise time_in_zone CDATA #IMPLIED >
+<!ATTLIST exercise exercise_time CDATA #REQUIRED >
+
+<!ATTLIST customfield id CDATA #REQUIRED >
+<!ATTLIST customfield name CDATA #REQUIRED >

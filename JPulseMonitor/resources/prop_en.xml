@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "properties.dtd">
+
+<properties>
+	<comment>Language spezific keys</comment>
+	<entry key="app.title">JPulseMonitor beta5</entry>
+	<entry key="session">Session</entry>
+	<entry key="user">User</entry>
+	<entry key="menu.file">File</entry>
+	<entry key="menu.file.mneKey">F</entry>
+	<entry key="menu.file.exit">Exit</entry>
+	<entry key="menu.file.exit.mneKey">x</entry>
+	<entry key="menu.file.export">Export...</entry>
+	<entry key="tooltip.export">Export exercises to a csv-file</entry>
+	<entry key="menu.edit">Edit</entry>
+	<entry key="menu.edit.mneKey">E</entry>
+	<entry key="menu.edit.newexercise">Add exercise</entry>
+	<entry key="menu.edit.newexercise.mneKey">c</entry>
+	<entry key="menu.edit.newtraining">Add training</entry>
+	<entry key="menu.edit.newtraining.mneKey">t</entry>
+	<entry key="menu.help">Help</entry>
+	<entry key="menu.help.mneKey">H</entry>
+	<entry key="menu.help.about">About</entry>
+	<entry key="menu.help.about.mneKey">A</entry>
+	<entry key="tooltip.about">Show some information about the JPulseMonitor</entry>
+	<entry key="dialog.exit.msg">Do you really want to close this application?</entry>
+	<entry key="dialog.exit.title">Exiting?</entry>
+	<entry key="but.addtraining">Add training</entry>
+	<entry key="tooltip.addtraining">Add a new training</entry>
+	<entry key="but.addtrainingtype">Add training-type</entry>
+	<entry key="tooltip.addtrainingtype">Add a new training-type</entry>
+	<entry key="but.edittrainingtype">Edit training-type</entry>
+	<entry key="tooltip.edittrainingtype">Edit the selected training-type</entry>
+	<entry key="but.edittraining">Edit training</entry>
+	<entry key="tooltip.edittraining">Edit the selected training</entry>
+	<entry key="but.deletetraining">Delete training</entry>
+	<entry key="tooltip.deletetraining">Delete the selected training</entry>
+	<entry key="but.deletetrainingtype">Delete training-type</entry>
+	<entry key="tooltip.deletetrainingtype">Delete the selected training-type</entry>
+	<entry key="but.deleteexercise">Delete exercise</entry>
+	<entry key="tooltip.deleteexercise">Delete the selected exercise</entry>
+	<entry key="but.addexercise">Add exercise</entry>
+	<entry key="tooltip.addexercise">Add a new exercise</entry>
+	<entry key="but.evalall">Evaluete</entry>
+	<entry key="tooltip.evalall">Start to evaluate all trainings</entry>
+	<entry key="but.edituser">Edit user</entry>
+	<entry key="tooltip.edituser">Edit the selected user</entry>
+	<entry key="tab.evaluation.title">Evaluation</entry>
+	<entry key="tab.session.title">Trainings sessions</entry>
+	<entry key="tab.admin.title">Administration</entry>
+	<entry key="dialog.training.new">Insert a new training</entry>
+	<entry key="dialog.training.edit">Edit an existing training</entry>
+	<entry key="dialog.trainingtype.new">Insert a new training-type</entry>
+	<entry key="dialog.trainingtype.edit">Edit an existing training-type</entry>
+	<entry key="dialog.user.edit">Edit an existing user</entry>
+	<entry key="dialog.user.new">Add a new user</entry>
+	<entry key="btn.ok">OK</entry>
+	<entry key="btn.cancel">Cancel</entry>
+	<entry key="btn.refresh">Refresh</entry>
+	<entry key="label.showlimits">Show limits</entry>
+	<entry key="label.showweight">Evaluate weight</entry>
+	<entry key="label.trainingType">Trainings type</entry>
+	<entry key="label.duration">Duration (mm.ss)</entry>
+	<entry key="label.distance">Distance (km)</entry>
+	<entry key="label.active">Active</entry>
+	<entry key="label.text">Text</entry>
+	<entry key="label.priority">Priority</entry>
+	<entry key="label.intensity">Intensity</entry>
+	<entry key="label.time">Time (mm.ss)</entry>
+	<entry key="label.date">Date</entry>
+	<entry key="label.training">Training</entry>
+	<entry key="label.weight">Weight (kg)</entry>
+	<entry key="label.kcal">Kcal</entry>
+	<entry key="label.heartrate">Heart rate</entry>
+	<entry key="label.limits">Limits</entry>
+	<entry key="label.inzone">Time in zone (mm.ss)</entry>
+	<entry key="label.exercisetime">Total exercise time (mm.ss)</entry>
+    <entry key="label.description">Description</entry>
+	<entry key="label.yearofbirth">Year of birth</entry>
+	<entry key="label.name">Name</entry>
+	<entry key="label.gender">Gender</entry>
+	<entry key="label.gender.male">Male</entry>
+	<entry key="label.gender.female">Female</entry>
+	<entry key="label.size">Size (m)</entry>
+	<entry key="admin.type">Training-types:</entry>
+	<entry key="admin.training">Trainings:</entry>
+	<entry key="admin.user">Users:</entry>
+	<entry key="dlg.delete.msg">Do you intend to delete the selected element?</entry>
+	<entry key="dlg.delete.title">Delete element?</entry>
+	<entry key="dlg.nodelete.msg">The element is still used by some other element, please remove this one first.</entry>
+	<entry key="userchooser">Current user</entry>
+	<entry key="userchooser.tooltip">Select of whom you would like to see the exercise information</entry>
+	<entry key="menu.help.pref">Preference...</entry>
+	<entry key="menu.help.pref.mneKey">P</entry>
+	<entry key="tooltip.pref">Change some basic settings</entry>
+
+	<entry key="chart.hr">Heart rate</entry>
+	<entry key="chart.value">Value</entry>
+	<entry key="chart.date">Date</entry>
+	<entry key="chart.title">Evaluation</entry>
+	
+	<entry key="limit.max">Max HR</entry>
+	<entry key="limit.min">Min HR</entry>
+	
+	<entry key="table.identification">Identification</entry>
+	<entry key="table.weight">Weight</entry>
+	<entry key="table.yearofbirth">Year of birth</entry>
+	<entry key="table.gender">Gender</entry>
+	<entry key="table.name">Name</entry>
+	<entry key="table.trainingtype">Training type</entry>
+	<entry key="table.duration">Duration</entry>
+	<entry key="table.distance">Distance</entry>
+	<entry key="table.limits">Limits</entry>
+	<entry key="table.active">Active</entry>
+	<entry key="table.text">Text</entry>
+	<entry key="table.priority">Priority</entry>
+	<entry key="table.intensity">Intensity</entry>
+	<entry key="table.time">Time</entry>
+	<entry key="table.date">Date</entry>
+	<entry key="table.training">Training Id</entry>
+	<entry key="table.kcal">Kcal</entry>
+	<entry key="table.hr">Average HR</entry>
+	<entry key="table.timeiz">Time in zone</entry>
+	<entry key="table.etime">Exercise time</entry>
+	<entry key="table.description">Description</entry>
+	<entry key="table.size">Size</entry>
+	
+	<entry key="dialog.pref">Preferences</entry>
+	<entry key="label.pref.limit.max">Default value for max. HR</entry>
+	<entry key="label.pref.limit.min">Default value for min. HR</entry>
+	<entry key="label.pref.months">Number of bygone months that are shown</entry>
+	<entry key="label.pref.Lookfeel">Turn on special Look and Feel (active after restart)</entry>
+	<entry key="label.pref.Gradient">Turn on gradient (active after restart)</entry>
+	
+	<entry key="status.kcal">Total Kcal</entry>
+	<entry key="status.hr">Av heart rate</entry>
+	<entry key="status.timeiz">Av time in zone</entry>
+	<entry key="status.etime">Av exercise time</entry>
+	<entry key="status.bmi">BMI</entry>
+	<entry key="status.maxhr">Maximal heart rate</entry>
+	
+	<entry key="about.text">JPulsemonitor (v. beat 5) is free software.
+		
+That means you have the freedom to:
+ * run the program, for any purpose
+ * study how the program works, and adapt it to your needs
+ * redistribute copies so you can help your neighbor
+ * improve the program, and release your improvements
+
+For more information about JPulsemonitor and its author visit
+http://www.illfounded.net</entry>
+
+</properties>

@@ -1,0 +1,47 @@
+.bordercell {
+    background-color: #A85353;
+}
+.contentcell {
+    background-color: #f5f5f5;
+}
+.spacercell {
+    height: 3px;
+}
+.navicell {
+    background-color: #ADADAD;
+}
+a:link {
+    color: #A85353;
+}
+a.navi {
+    color: #A85353;
+    text-decoration: none;
+}
+a:visited {
+    color: #A85353;
+}
+a:active {
+    color: #A85353;
+}
+a:hover { color: #F8B3B3 }
+a:hover.navi { color: #FFFFFF }
+img.navi {
+    border:1px
+    color: #A85353;
+    text-decoration: none;
+}
+
+/* The main 'look and feel' */
+body, html {
+    background-color: #FFFFFF;
+    color: #454545;
+    margin: 0;
+}
+
+h1 {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; line-height: normal; font-weight: normal; color: #000000}
+h2 {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal}
+h3 {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-style: normal; line-height: normal; font-weight: normal}
+body { font-family: Arial, Helvetica, sans-serif ; font-size: 12px}
+th {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: italic; line-height: normal; font-weight: normal; text-align: left; background-color: #999999}
+td {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal}
+ul { list-style-type: circle }

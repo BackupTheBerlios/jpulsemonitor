@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE administration SYSTEM "administration.dtd">
+<administration>
+<configuration>
+	<limit.max>160</limit.max>
+	<limit.min>126</limit.min>
+	<nbr.visible.months>6</nbr.visible.months>
+	<app.maximized>no</app.maximized>
+	<app.lookfeel.on>yes</app.lookfeel.on>
+	<app.gradient.on>no</app.gradient.on>
+</configuration>
+
+<training_types>
+	<comment>All possible types of training</comment>
+	<training_type id="y-1" intensity="&gt;90%HFmax" priority="tief" time="&lt;10 Sek.">Ultrakurzzeitausdauer</training_type>
+	<training_type id="y-2" intensity="&gt;90%HFmax" priority="tief" time="10-35 Sek">Schnelligkeitausdauer</training_type>
+	<training_type id="y-3" intensity="&gt;90%HFmax" priority="tief" time="35-120 Sek">Kurzzeitausdauer</training_type>
+	<training_type id="y-4" intensity="&gt;90%HFmax" priority="tief" time="2-10 Min">Mittelzeitausdauer</training_type>
+	<training_type id="y-5" intensity="65-80% HFmax" priority="mittel" time="10-35 Min">Langzeitausdauer 1</training_type>
+	<training_type id="y-6" intensity="75-85% HFmax" priority="hoch" time="35-90 Min">Langzeitausdauer 2</training_type>
+	<training_type id="y-7" intensity="75-85%HFmax" priority="mittel" time="90-360 Min">Langzeitausdauer 3</training_type>
+	<training_type id="y-8" intensity="75-85% HFmax" priority="tief" time="&gt;360 Min">Langzeitausdauer 4</training_type>
+	<training_type id="y-9" intensity="65-70% HFmax" priority="mittel" time="~45 Min">Regenerations- und Kompensationstraining</training_type>
+	<training_type id="y-10" intensity="&gt;90% HFmax" priority="tief" time="60-90 Min">Wettkampfspezifischen Ausdauer</training_type>
+</training_types>
+
+<trainings>
+	<comment>All possible trainings</comment>
+	<training active="yes" distance="8.0" duration="60.0" id="t-1" limits="126/165" training_type="y-6">Laufen (lang)</training>
+	<training active="no" distance="4.0" duration="30.0" id="t-2" limits="126/165" training_type="y-5">Laufen (kurz)</training>
+	<training active="no" distance="10.0" duration="60.0" id="t-3" limits="124/154" training_type="y-9">Rollerblading (gemütlich)</training>
+	<training active="yes" distance="10.0" duration="45.0" id="t-4" limits="126/165" training_type="y-6">Rollerblading (Madis retour)</training>
+	<training active="yes" distance="20.0" duration="45.0" id="t-5" limits="124/154" training_type="y-6">Fahrrad (Rolle)</training>
+<training active="yes" distance="10.0" duration="60.0" id="t-6" limits="126/165" training_type="y-6">Laufen (ganz oben rum)</training><training active="yes" distance="15.0" duration="60.0" id="t-7" limits="124/154" training_type="y-6">Rollerblading (Madis, Rütsch., B.bach)</training></trainings>
+
+<users default="u-1">
+	<comment>All users (real persons) of the system</comment>
+	<user gender="male" id="u-1" size="1.86" weight="74.0" year_of_birth="1978">Adrian Bürki</user>
+</users>
+
+<customfields>
+	<customfield>polarindex</customfield>
+</customfields>
+
+</administration>

@@ -1,0 +1,1 @@
+The project purpose is to develop an application to store and analyze workout data. Workout data in terms of duration of a training session, average pulse during the session and so forth. The focus will be on endurance training, means the applications main purpose is to handle information provided by a heart monitor.
